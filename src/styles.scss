@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    color: #000;
+    background-color: #f1f1f1;
+}
+
+h1, h2, h3, h5, h4, h6, p, span{
+font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+}
+.large-font-size{
+    font-size: 24px !important;
+}
+.font-bold{
+    font-weight: bold;
+}
+.btn{
+    padding: 12px;
+}
+hr{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.custom-row {
+    margin-bottom:10px;
+}
+
+.box-shadow{
+    background-color: white;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+}
+@media only screen and (min-width:1024px){
+.left-aside{
+    margin: 0px 7px 0px 8px;
+    width:31%;
+}
+.right-aside {
+    width: 67.4%;
+}
+}

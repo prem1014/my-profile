@@ -1,0 +1,23 @@
+.navbar-inverse {
+    background-color: #009688;
+    border-color: #009688;
+    border-radius:0px;
+    color: #fff;
+    .navbar-brand {
+        color: #fff;
+        span{
+            font-size: 13px;
+            color: #FFEB3B;
+            font-style: oblique;
+        }
+    }
+}
+.footer{
+    color: #fff;
+    background-color: #009688;
+    padding: 10px;
+    text-align: center;
+    a{
+    color:white;
+    }
+}

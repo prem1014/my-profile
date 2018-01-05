@@ -1,0 +1,74 @@
+<div class="row custom-row">
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 left-aside box-shadow">
+    <h2 class="large-font-size font-bold">Contact</h2>
+    <hr>
+    <h3>You can reach out to me any time and I will be happy to help you!!!!</h3>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <h4><i class="glyphicon glyphicon-earphone"></i> Phone</h4>
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <h4 class="font-bold">+91 844 601 2999</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <h4><i class="glyphicon glyphicon-map-marker"></i> Location</h4>
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <h4 class="font-bold">Pune, Mahrashtra, India</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <h4><i class="glyphicon glyphicon-envelope"></i> Email</h4>
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <h4 class="font-bold">prem1014prakash@gmail.com</h4>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 right-aside box-shadow">
+    <h2 class="large-font-size font-bold">Start a conversation</h2>
+    <hr>
+    <h3>Start your conversation with me. I am just a message away!!</h3>
+    <form class="form-horizontal" #contactInfo="ngForm" name="contactInfo">
+      <div class="form-group">
+        <label class="control-label col-lg-1 col-md-1 col-sm-1 col-xs-12">Name:</label>
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+          <input type="text" class="form-control" [(ngModel)]="contactDetails.name" name="name">
+        </div>
+        <label class="control-label col-lg-1 col-md-1 col-sm-1 col-xs-12">Email:</label>
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+          <input type="email" class="form-control" [(ngModel)]="contactDetails.email" name="email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-lg-1 col-md-1 col-sm-1 col-xs-12">Mobile:</label>
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+          <input type="tel" class="form-control" [(ngModel)]="contactDetails.mobile" name="mobile">
+        </div>
+        <label class="control-label col-lg-1 col-md-1 col-sm-1 col-xs-12">City:</label>
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+          <input type="text" class="form-control" [(ngModel)]="contactDetails.city" name="city">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-lg-1 col-md-1 col-sm-1 col-xs-12">Message:</label>
+        <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+          <textarea class="form-control" [(ngModel)]="contactDetails.message" name="message"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-lg-1 col-md-1 col-sm-1 col-xs-12"></label>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+          <button class="btn btn-info" (click)="saveMessage()">Send Your Message</button>
+        </div>
+        <span *ngIf="isLoading === 'true'"><i class="fa fa-spinner fa-spin"></i></span>
+        <div *ngIf="isLoading === 'false'" class="col-lg-8 col-md-8 col-sm-8 col-xs-12 alert alert-success">
+          <strong>Success!</strong> Your message saved. Thank you for your interest;
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

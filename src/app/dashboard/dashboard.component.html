@@ -1,0 +1,35 @@
+<div class="row custom-row">
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 left-aside box-shadow">
+    </div>
+    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 right-aside box-shadow">
+            <h2 class="font-bold">All Queries</h2>
+            <span *ngIf="isLoading === 'true'"><i class="fa fa-spinner fa-spin"></i></span>
+            <hr>
+            <table class="table" *ngIf="isLoading === 'false'">
+                <thead>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                       Email
+                    </th>
+                    <th>
+                        Mobile
+                    </th>
+                    <th>
+                        City
+                    </th>
+                    <th>
+                        Message
+                    </th>
+                </thead>
+                <tr *ngFor="let contact of contactDetails">
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.email}}</td>
+                    <td>{{contact.mobile}}</td>
+                    <td>{{contact.city}}</td>
+                    <td>{{contact.message}}</td>
+                </tr>
+            </table>   
+    </div>
+</div>

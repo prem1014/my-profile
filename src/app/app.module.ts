@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {ToasterModule} from 'angular2-toaster';
 
 import { APIService } from './_core/api-service';
 import { AppComponent } from './app.component';
@@ -41,6 +42,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
+    ToasterModule,
     RouterModule.forRoot(appRoutes, { useHash: true })
   ],
   providers: [APIService, AuthGuard],

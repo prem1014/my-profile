@@ -3,13 +3,14 @@
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 box-shadow">
         <h3 style="text-align:center;">Sign Up</h3>
         <hr style="margin-bottom:15px;">
-        <form class="form-horizontal" name="signUpForm">
+        <form class="form-horizontal" #signUpForm="ngForm" name="signUpForm" novalidate>
             <div class="form-group">
                 <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-12">
                     Email Id:
                 </label>
                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                    <input type="email" name="email" [(ngModel)]="user.email" class="form-control">
+                    <input type="email" name="email" [(ngModel)]="user.email" class="form-control" required #email="ngModel">
+                    <span [hidden]="email.valid || email.pristine" class="error-message">Email is required</span>
                 </div>
             </div>
             <div class="form-group">
@@ -17,7 +18,8 @@
                     Name:
                 </label>
                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                    <input type="text" name="userName" [(ngModel)]="user.name" class="form-control">
+                    <input type="text" name="userName" required [(ngModel)]="user.name" class="form-control" #name="ngModel">
+                    <span [hidden]="name.valid || name.pristine" class="error-message">Name is required</span>
                 </div>
             </div>
             <div class="form-group">
@@ -25,22 +27,28 @@
                     Password:
                 </label>
                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                    <input type="password" name="password" [(ngModel)]="user.password" class="form-control">
+                    <input type="password" required name="password" [(ngModel)]="user.password" class="form-control" #password="ngModel">
+                    <span [hidden]="password.valid || password.pristine" class="error-message">Password is required</span>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                    Password:
+                    Confirm Password:
                 </label>
                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                    <input type="password" name="cnfPassword" [(ngModel)]="user.cnfPassword" class="form-control">
+                    <input type="password" required name="cnfPassword" 
+                    [(ngModel)]="user.cnfPassword" class="form-control" 
+                    #cnfPassword="ngModel" [ngClass]="{'custom-error': password.value !== cnfPassword.value}">
+                    <span [hidden]="cnfPassword.valid || cnfPassword.pristine" class="error-message">Confirm password is required.</span>
+                    <span [hidden]="password.value === cnfPassword.value" class="error-message">Confirm password should match with entered password</span>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-12">
                 </label>
                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-                    <button type="submit" (click)="signUp()" [disabled]="loading === 'true'" class="btn btn-info">Sign Up</button>
+                    <button type="submit" (click)="signUp()" 
+                    [disabled]="!signUpForm.form.valid || loading === 'true' || password.value !== cnfPassword.value" class="btn btn-info">Sign Up</button>
                     <span *ngIf="loading === 'true'">
                         <i class="fa fa-spinner fa-spin"></i>
                     </span>
@@ -50,3 +58,4 @@
     </div>
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
 </div>
+<toaster-container [toasterconfig]="toasterconfig"></toaster-container>

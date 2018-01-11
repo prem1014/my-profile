@@ -28,6 +28,7 @@ export class AppComponent {
   logOut(event){
     event.preventDefault();
     sessionStorage.removeItem('isLoggedIn');
+    sessionStorage.removeItem('userRole');
     this.userLoggedIn = JSON.parse(sessionStorage.getItem('userRole'));
     this.isLoggedIn = 'false';
     this.router.navigateByUrl('/login');

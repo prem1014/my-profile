@@ -10,7 +10,7 @@ export class APIService {
   private aboutMe: any = {};
   public redirectUrl: string;
   public userRole: string;
-  private summary: string = 'Hello, I am Prem Prakash.I am a front end developer who always looks to enhance technical skill in web technology which help me to build a user friendly web application.I love to create highly interactive web application using new web technologies. I have worked on various web technologies like HTML, HTML5, CSS, CSS3, Responsive, Javascripts, Jquery, Jquery Mobile, Angular Js';
+  private summary: string = 'Hello, I am Prem Prakash.I am a front end developer who always looks to enhance technical skill in web technology which help me to build a user friendly web application.I love to create highly interactive web application using new web technologies. I have worked on various web technologies like HTML, HTML5, CSS, CSS3, Responsive Design, Javascripts, Jquery, Jquery Mobile, Angular 1.x, Angular 2/4';
   constructor(private http: Http) {
   }
   // private instance variable to hold base url
@@ -44,6 +44,11 @@ export class APIService {
   }
   authenticateUser(userId: any){
     return this.http.get(this.apiUrl+ 'login'+'/'+userId)
+    .map((res: Response) => res.json())
+    .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+  saveSignUpDetails(user: any){
+    return this.http.post(this.apiUrl+ 'login', {user:user})
     .map((res: Response) => res.json())
     .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }

@@ -9,9 +9,9 @@ import { AuthService } from './_core/auth-service';
   providers: [AuthService]
 })
 export class AppComponent {
-  private userLoggedIn;
-  private isLoggedIn: string = 'false';
-  private router;
+  userLoggedIn;
+  isLoggedIn: string = 'false';
+  router;
   constructor(router: Router, authService: AuthService){
     this.router = router;
     this.userLoggedIn = JSON.parse(sessionStorage.getItem('userRole'));

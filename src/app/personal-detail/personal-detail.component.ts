@@ -8,7 +8,7 @@ import { APIService } from '../_core/api-service';
   styleUrls: ['./personal-detail.component.scss']
 })
 export class PersonalDetailComponent implements OnInit {
-  private experience: any = {};
+  experience: any = {};
   constructor(private api: APIService) {
     this.api = api;
   }

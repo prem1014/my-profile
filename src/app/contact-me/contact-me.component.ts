@@ -7,10 +7,14 @@ import { APIService } from '../_core/api-service'
   styleUrls: ['./contact-me.component.scss']
 })
 export class ContactMeComponent implements OnInit {
-  private contactDetails: any = {};
-  private isLoading: string;
+  contactDetails: any = {};
+  isLoading: string;
+  public toastr;
+  public toasterconfig;
   constructor(private api: APIService) {
     this.api = api;
+    this.toasterconfig = this.api.initToasterConfig();
+    this.toastr = api.getToaster();
   }
 
   ngOnInit() {
@@ -19,6 +23,9 @@ export class ContactMeComponent implements OnInit {
     this.isLoading = 'true';
     this.contactDetails.messageDate = new Date();
     this.api.saveMessage({messageDetails: this.contactDetails})
-      .subscribe(data => this.isLoading = 'false');
+      .subscribe(data => {
+        this.isLoading = 'false'
+        this.toastr.success('Your message has saved. Thank you for your interest. I will get back to you soon.')
+      });
   }
 }

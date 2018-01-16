@@ -32,15 +32,17 @@
     <h2 class="large-font-size font-bold">Start a conversation</h2>
     <hr>
     <h3>Start your conversation with me. I am just a message away!!</h3>
-    <form class="form-horizontal" #contactInfo="ngForm" name="contactInfo">
+    <form class="form-horizontal" #contactInfo="ngForm" name="contactInfo" novalidate>
       <div class="form-group">
         <label class="control-label col-lg-1 col-md-1 col-sm-1 col-xs-12">Name:</label>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-          <input type="text" class="form-control" [(ngModel)]="contactDetails.name" name="name">
+          <input type="text" class="form-control" [(ngModel)]="contactDetails.name" name="name" #name="ngModel" required>
+          <span [hidden]="name.valid || name.pristine" class="error-message">Name is required</span>
         </div>
         <label class="control-label col-lg-1 col-md-1 col-sm-1 col-xs-12">Email:</label>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-          <input type="email" class="form-control" [(ngModel)]="contactDetails.email" name="email">
+          <input type="email" class="form-control" [(ngModel)]="contactDetails.email" name="email" #email="ngModel" required>
+          <span class="error-message" [hidden]="email.valid || email.pristine">Email is required</span>
         </div>
       </div>
       <div class="form-group">
@@ -62,13 +64,11 @@
       <div class="form-group">
         <label class="control-label col-lg-1 col-md-1 col-sm-1 col-xs-12"></label>
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-          <button class="btn btn-info" (click)="saveMessage()">Send Your Message</button>
-        </div>
-        <span *ngIf="isLoading === 'true'"><i class="fa fa-spinner fa-spin"></i></span>
-        <div *ngIf="isLoading === 'false'" class="col-lg-8 col-md-8 col-sm-8 col-xs-12 alert alert-success">
-          <strong>Success!</strong> Your message saved. Thank you for your interest;
+          <button class="btn btn-info" (click)="saveMessage()" [disabled]="!contactInfo.valid || isLoading === 'true'">Send Your Message</button>
+          <span *ngIf="isLoading === 'true'"><i class="fa fa-spinner fa-spin"></i></span>
         </div>
       </div>
     </form>
   </div>
 </div>
+<toaster-container [toasterconfig]="toasterconfig"></toaster-container>

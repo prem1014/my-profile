@@ -10,8 +10,8 @@ import { APIService } from '../_core/api-service';
     styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-    private myDetails: any = {};
-    private isLoading: boolean;
+    myDetails: any = {};
+    isLoading: boolean;
 
     constructor(private api: APIService) {
         this.api = api;

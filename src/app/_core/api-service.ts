@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import {ToasterService, ToasterConfig} from 'angular2-toaster';
 import { Observable } from 'rxjs/Rx'
 import * as moment from 'moment';
 import * as _ from 'lodash';
+import { retry } from 'rxjs/operators/retry';
 
 @Injectable()
 export class APIService {
@@ -10,8 +12,9 @@ export class APIService {
   private aboutMe: any = {};
   public redirectUrl: string;
   public userRole: string;
+  public toasterconfig: ToasterConfig;
   private summary: string = 'Hello, I am Prem Prakash.I am a front end developer who always looks to enhance technical skill in web technology which help me to build a user friendly web application.I love to create highly interactive web application using new web technologies. I have worked on various web technologies like HTML, HTML5, CSS, CSS3, Responsive Design, Javascripts, Jquery, Jquery Mobile, Angular 1.x, Angular 2/4';
-  constructor(private http: Http) {
+  constructor(private http: Http, private toasterService: ToasterService) {
   }
   // private instance variable to hold base url
   //private apiUrl = 'http://localhost:8080/api/';
@@ -51,6 +54,28 @@ export class APIService {
     return this.http.post(this.apiUrl+ 'login', {user:user})
     .map((res: Response) => res.json())
     .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+  initToasterConfig(){
+    this.toasterconfig = 
+    new ToasterConfig({
+        showCloseButton: true, 
+        tapToDismiss: false, 
+        timeout: 0,
+        positionClass: 'toast-bottom-right'
+    });
+    return this.toasterconfig;
+  }
+  getToaster(){
+    var service = this;
+    let toaster = {
+      success: function(message){
+        service.toasterService.pop('success', message);
+      },
+      error: function(message){
+        service.toasterService.pop('error', message);
+      }
+    }
+    return toaster;
   }
 }
 

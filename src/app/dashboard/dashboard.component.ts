@@ -7,8 +7,8 @@ import { APIService } from '../_core/api-service'
     styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-    private contactDetails: any = [];
-    private isLoading: string = 'true';
+    contactDetails: any = [];
+    isLoading: string = 'true';
     constructor(private api: APIService){
         this.api = api;
         this.api.getMessageDetails()

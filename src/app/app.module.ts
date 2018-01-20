@@ -11,36 +11,40 @@ import 'nvd3';
 
 import { APIService } from './_core/api-service';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { PersonalDetailComponent } from './personal-detail/personal-detail.component';
-import { LoginComponent } from './login/login.component';
 import { AuthGuard }                from './_core/auth-guard.service';
-import { Error401Component } from './error-401/401';
-import { SignUpComponent } from './sign-up/sign-up';
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'contactMe',
+  { 
+    path: 'home',
+    loadChildren: 'app/home/module#HomeModule'
+  },
+  { 
+    path: 'contactMe',
     loadChildren: 'app/contact-me/module#ContactMeModule'
   },
-  { path: 'dashboard',
+  { 
+    path: 'dashboard',
     loadChildren: 'app/dashboard/dashboard.module#DashboardModule',
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
    },
-  { path: 'login', component: LoginComponent },
-  { path: '401', component: Error401Component },
-  { path: 'signUp', component: SignUpComponent },
+  { 
+    path: 'login', 
+    loadChildren: 'app/login/module#LoginModule'
+   },
+  { 
+    path: '401',
+    loadChildren: 'app/error-401/module#Error401Module' 
+  },
+  { 
+    path: 'signUp',
+    loadChildren: 'app/sign-up/module#SignUpModule'
+   },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ]
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    PersonalDetailComponent,
-    LoginComponent,
-    Error401Component,
-    SignUpComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

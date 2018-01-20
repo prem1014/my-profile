@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule }   from '@angular/forms';
 import {ToasterModule} from 'angular2-toaster';
-import { ContactMeComponent } from './contact-me.component';
-
+import { HomeComponent } from './home.component';
 const routes: Routes = [
   {
     path: '',
-    component: ContactMeComponent
+    component: HomeComponent
   }
 ];
 
 @NgModule({
   declarations: [
-    ContactMeComponent
+    HomeComponent
   ],
   imports: [
     CommonModule,
@@ -24,4 +23,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class ContactMeModule { }
+export class HomeModule { }

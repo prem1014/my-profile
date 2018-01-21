@@ -11,7 +11,7 @@ import 'nvd3';
 
 import { APIService } from './_core/api-service';
 import { AppComponent } from './app.component';
-import { AuthGuard }                from './_core/auth-guard.service';
+import { AuthGuard } from './_core/auth-guard.service';
 
 const appRoutes: Routes = [
   { 

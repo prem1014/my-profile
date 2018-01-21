@@ -23,7 +23,10 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li *ngIf="isLoggedIn === 'true'"><a routerLink="/home"><span>{{userLoggedIn.name}}</span></a></li>
+            <li *ngIf="isLoggedIn === 'true'">
+              <span style="font-weight:bold;">{{userLoggedIn.name}}</span><br>
+              <span>{{userLoggedIn._id}}</span>
+            </li>
             <li *ngIf="isLoggedIn === 'true'">
               <a href="#" (click)="logOut($event)">
                 <span class="glyphicon glyphicon-log-out"></span> Log Out</a>

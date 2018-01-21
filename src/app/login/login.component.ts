@@ -39,12 +39,7 @@ export class LoginComponent implements OnInit {
                     sessionStorage.setItem('userRole', JSON.stringify(data.userCred[0]));
                     this.api.userRole = data.userCred[0].role;
                     this.authService.saveUserInfo(data.userCred[0])
-                    if(this.api.userRole === 'Admin'){
-                        this.router.navigateByUrl('/dashboard');
-                    }
-                    else{
-                        this.router.navigateByUrl('/home')
-                    }
+                    this.router.navigateByUrl('/dashboard');
                 }
                 else{
                     this.loading = 'false';

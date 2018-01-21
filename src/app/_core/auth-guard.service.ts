@@ -22,9 +22,12 @@ export class AuthGuard implements CanActivate {
             return true;
          }
          else if(sessionStorage.getItem('isLoggedIn') ==='true' && this.user.role === 'Normal'){
-           if(url === '/personalInfo' || url === '/dashboard'){
+           if(url === '/dashboard/personalInfo'){
              this.router.navigate(['/401']);
              return true;
+           }
+           else{
+            return true;
            }
          }
         // Store the attempted URL for redirecting

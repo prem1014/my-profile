@@ -36,20 +36,20 @@
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 left-side box-shadow">
         <ul class="nav nav-pills nav-stacked">
             <li>
-                <a href="#">Dashboard</a>
-            </li>
-            <li>
                 <a [routerLink]="['personalInfo']">Personal Info</a>
             </li>
             <li>
-                <a href="#">Menu 2</a>
+                <a [routerLink]="['jsTutorials']">Javascript Tutorials</a>
             </li>
             <li>
-                <a href="#">Menu 3</a>
+                <a [routerLink]="['angTutorials']">Angular Tutorials</a>
+            </li>
+            <li>
+                <a [routerLink]="['personalInfo']">Ask Question</a>
             </li>
         </ul>
     </div>
-    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 right-aside box-shadow" style="margin-left:15px;">
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 right-aside box-shadow">
         <router-outlet></router-outlet>
     </div>
 </div>

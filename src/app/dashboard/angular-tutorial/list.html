@@ -3,7 +3,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                     <div style="background-color: rgb(0, 238, 255);" class="tutorial-container">
-                        <h3>Angular Basics</h3>
+                        <a [routerLink]="['angBasics']"><h3>Angular Basics</h3></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
@@ -45,4 +45,7 @@
                 </div>
             </div>
         </div>
-    </div>
+</div>
+<div class="row custom-row">
+    <router-outlet></router-outlet>
+</div>

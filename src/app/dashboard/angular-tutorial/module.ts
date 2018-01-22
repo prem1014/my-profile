@@ -5,7 +5,13 @@ import { AngularTutorialComponent} from './list';
 const routes: Routes = [
     {
         path: '',
-        component: AngularTutorialComponent
+        component: AngularTutorialComponent,
+        children: [
+            {
+                path: 'angBasics',
+                loadChildren: 'app/dashboard/angular-tutorial/ang-basics/module#AngBasicsModule'
+            }
+        ]
     }
 ]
 @NgModule({

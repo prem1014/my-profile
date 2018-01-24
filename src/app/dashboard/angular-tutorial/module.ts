@@ -8,6 +8,10 @@ const routes: Routes = [
         component: AngularTutorialComponent,
         children: [
             {
+                path: 'angSetup',
+                loadChildren: 'app/dashboard/angular-tutorial/ang-setup/module#AngSetupModule'
+            },
+            {
                 path: 'angBasics',
                 loadChildren: 'app/dashboard/angular-tutorial/ang-basics/module#AngBasicsModule'
             }

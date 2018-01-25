@@ -7,6 +7,35 @@ import { Component, OnInit} from '@angular/core';
 })
 
 export class AngBasicsComponent implements OnInit {
+    public buildingsBlocks = [];
+    constructor(){
+        this.buildingsBlocks = [
+            {
+                name: 'Modules'
+            },
+            {
+                name: 'Components'
+            },
+            {
+                name: 'Templates'
+            },
+            {
+                name: 'Metadata'
+            },
+            {
+                name: 'Data binding'
+            },
+            {
+                name: 'Directives'
+            },
+            {
+                name: 'Services'
+            },
+            {
+                name: 'Dependency Injection'
+            }
+        ]
+    }
     ngOnInit(){
         
     }

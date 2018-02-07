@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard.component';
 import { AuthGuard } from '../_core/auth-guard.service';
 const routes: Routes = [
@@ -19,6 +20,11 @@ const routes: Routes = [
       {
         path: 'angTutorials',
         loadChildren: 'app/dashboard/angular-tutorial/module#AngularTutorialModule'
+      },
+      {
+        path: 'myAsset',
+        canActivate: [AuthGuard],
+        loadChildren: 'app/dashboard/my-asset/module#MyAssetModule'
       }
     ]
   }
@@ -28,7 +34,10 @@ const routes: Routes = [
   declarations: [
     DashboardComponent
   ],
-  imports: [RouterModule.forChild(routes)],
+  imports: [
+    FormsModule,
+    RouterModule.forChild(routes)
+  ],
   exports: [RouterModule]
 })
 export class DashboardModule { }

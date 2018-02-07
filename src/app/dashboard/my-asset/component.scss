@@ -1,0 +1,27 @@
+h3{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+h1, h2, h3, h4, h5 {
+    text-align: center;
+}
+
+hr {
+    margin-bottom: 20px;
+}
+.finance-badge-container {
+    padding: 11px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.total-asset {
+    background-color: #4CAF50;
+}
+.total-expense {
+    background-color: rgb(247, 91, 63);
+}

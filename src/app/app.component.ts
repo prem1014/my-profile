@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { APIService } from './_core/api-service';
 import { AuthService } from './_core/auth-service';
 @Component({
   selector: 'app-root',
@@ -12,7 +13,9 @@ export class AppComponent {
   userLoggedIn;
   isLoggedIn: string = 'false';
   router;
-  constructor(router: Router, authService: AuthService){
+  public toasterconfig;
+  constructor(router: Router, authService: AuthService, private api: APIService){
+    this.toasterconfig = this.api.initToasterConfig();
     this.router = router;
     this.userLoggedIn = JSON.parse(sessionStorage.getItem('userRole'));
     if(this.userLoggedIn){

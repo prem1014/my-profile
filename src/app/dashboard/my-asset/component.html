@@ -1,0 +1,127 @@
+<diV class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <h3>Asset</h3>
+        <hr>
+        <form novalidate class="form-horizontal" (ngSubmit)="saveAsset()" #assetForm="ngForm">
+            <div class="form-group">
+                <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    Saving Amount:
+                </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <input type="number" required name="amount" class="form-control" [(ngModel)]="asset.amount" #amount="ngModel">
+                    <span class="error-message" [hidden]="amount.valid || amount.pristine">Please enter amount</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    Saving type:
+                </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <input type="text" #savingType="ngModel" required class="form-control" name="type" [(ngModel)]="asset.type">
+                    <span class="error-message" [hidden]="savingType.valid || savingType.pristine">Please enter type of saving</span>                
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    Date:
+                </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <input type="date" required #savingDate="ngModel" class="form-control" name="savingDate" [(ngModel)]="asset.date">
+                    <span class="error-message" [hidden]="savingDate.valid || savingDate.pristine">Please select date</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <button type="submit" [disabled]="!assetForm.valid || isSavingAsset" class="btn btn-info">Save</button>
+                    <span *ngIf="isSavingAsset">
+                            <i class="fa fa-spinner fa-spin"></i>
+                    </span>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <div class="finance-badge-container total-asset">
+                <h4>Total Asset</h4>
+                <h3>{{totalAsset}}</h3>
+                <span *ngIf="isLoadingAsset">
+                        <i class="fa fa-spinner fa-spin"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="finance-badge-container total-asset">
+                <h4>Saving this month</h4>
+                <h3>{{totalAsset}}</h3>
+                <span *ngIf="isLoadingAsset">
+                        <i class="fa fa-spinner fa-spin"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <h3>Expense</h3>
+        <hr>
+        <form novalidate class="form-horizontal" (ngSubmit)="saveExpense()" #expenseForm="ngForm">
+            <div class="form-group">
+                <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    Expense Amount:
+                </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <input type="number" required #expenseAmount="ngModel" class="form-control" name="expense" [(ngModel)]="expense.amount" name="expenseAmount">
+                    <span class="error-message" [hidden]="expenseAmount.valid || expenseAmount.pristine">Please enter amount</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    Expense type:
+                </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <input type="text" required class="form-control" [(ngModel)]="expense.type" #expenseType="ngModel" name="expenseType">
+                    <span class="error-message" [hidden]="expenseType.valid || expenseType.pristine">Please enter type of expense</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    Date:
+                </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <input type="date" required #expenseDate="ngModel" class="form-control" name="expenseDate" [(ngModel)]="expense.date">
+                    <span class="error-message" [hidden]="expenseDate.valid || expenseDate.pristine">Please select date</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <button type="submit" [disabled]="!expenseForm.valid || isSavingExpense" class="btn btn-info">Save</button>
+                    <span *ngIf="isSavingExpense">
+                            <i class="fa fa-spinner fa-spin"></i>
+                    </span>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <div class="finance-badge-container total-expense">
+                <h4>Total Expense</h4>
+                <h3>{{totalExpense}}</h3>
+                <span *ngIf="isLoadingExpense">
+                        <i class="fa fa-spinner fa-spin"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="finance-badge-container total-expense">
+                <h4>Expense this month</h4>
+                <h3>{{totalExpense}}</h3>
+                <span *ngIf="isLoadingExpense">
+                        <i class="fa fa-spinner fa-spin"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</diV>
+<toaster-container [toasterconfig]="toasterconfig"></toaster-container>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import {ToasterService, ToasterConfig} from 'angular2-toaster';
+import { ToasterService, ToasterConfig } from 'angular2-toaster';
 import { Observable } from 'rxjs/Rx'
 import * as moment from 'moment';
 import * as _ from 'lodash';
@@ -17,8 +17,8 @@ export class APIService {
   constructor(private http: Http, private toasterService: ToasterService) {
   }
   // private instance variable to hold base url
-  //private apiUrl = 'http://localhost:8080/api/';
-  private apiUrl = 'https://myprofileapi.herokuapp.com/api/'
+  private apiUrl = 'http://localhost:8080/api/';
+  //private apiUrl = 'https://myprofileapi.herokuapp.com/api/'
 
   getTotalExperience(startDate, endDate) {
     return (moment(new Date(startDate)).diff(moment(new Date(endDate)), 'month')).toString().split('-')[1];
@@ -45,33 +45,64 @@ export class APIService {
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
-  authenticateUser(userId: any){
-    return this.http.get(this.apiUrl+ 'login'+'/'+userId)
-    .map((res: Response) => res.json())
-    .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  authenticateUser(userId: any) {
+    return this.http.get(this.apiUrl + 'login' + '/' + userId)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
-  saveSignUpDetails(user: any){
-    return this.http.post(this.apiUrl+ 'login', {user:user})
-    .map((res: Response) => res.json())
-    .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  saveSignUpDetails(user: any) {
+    return this.http.post(this.apiUrl + 'login', { user: user })
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
-  initToasterConfig(){
-    this.toasterconfig = 
-    new ToasterConfig({
-        showCloseButton: true, 
-        tapToDismiss: false, 
+
+  saveAssetDetails(asset: any) {
+    return this.http.post(this.apiUrl + 'asset', { asset: asset })
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  saveExpenseDetails(expense: any) {
+    return this.http.post(this.apiUrl + 'expense', { expense: expense })
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  getAsset() {
+    return this.http.get(this.apiUrl + 'asset')
+      .map((res: Response) => res.json())
+      .catch(
+      (error: any) =>
+        Observable.throw(error.json().error || 'Server error')
+      );
+  }
+
+  getExpense() {
+    return this.http.get(this.apiUrl + 'expense')
+    .map((res: Response) => res.json())
+    .catch(
+    (error: any) =>
+      Observable.throw(error.json().error || 'Server error')
+    );
+  }
+
+  initToasterConfig() {
+    this.toasterconfig =
+      new ToasterConfig({
+        showCloseButton: true,
+        tapToDismiss: false,
         timeout: 0,
         positionClass: 'toast-bottom-right'
-    });
+      });
     return this.toasterconfig;
   }
-  getToaster(){
+  getToaster() {
     var service = this;
     let toaster = {
-      success: function(message){
+      success: function (message) {
         service.toasterService.pop('success', message);
       },
-      error: function(message){
+      error: function (message) {
         service.toasterService.pop('error', message);
       }
     }

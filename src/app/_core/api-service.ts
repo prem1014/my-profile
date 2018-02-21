@@ -17,8 +17,8 @@ export class APIService {
   constructor(private http: Http, private toasterService: ToasterService) {
   }
   // private instance variable to hold base url
-  //private apiUrl = 'http://localhost:8080/api/';
-  private apiUrl = 'https://myprofileapi.herokuapp.com/api/'
+  private apiUrl = 'http://localhost:8080/api/';
+  //private apiUrl = 'https://myprofileapi.herokuapp.com/api/'
 
   getTotalExperience(startDate, endDate) {
     return (moment(new Date(startDate)).diff(moment(new Date(endDate)), 'month')).toString().split('-')[1];
@@ -68,8 +68,8 @@ export class APIService {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  getAsset() {
-    return this.http.get(this.apiUrl + 'asset')
+  getAsset(id) {
+    return this.http.get(this.apiUrl + 'asset' + '/' + id)
       .map((res: Response) => res.json())
       .catch(
       (error: any) =>
@@ -77,8 +77,8 @@ export class APIService {
       );
   }
 
-  getExpense() {
-    return this.http.get(this.apiUrl + 'expense')
+  getExpense(id) {
+    return this.http.get(this.apiUrl + 'expense' + '/' + id)
     .map((res: Response) => res.json())
     .catch(
     (error: any) =>

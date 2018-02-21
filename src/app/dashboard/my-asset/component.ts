@@ -65,17 +65,18 @@ export class MyAssetComponent implements OnInit {
 
     getAsset(): void {
         this.isLoadingAsset = true;
-        this.api.getAsset()
+        this.api.getAsset(this.userDetails._id)
         .subscribe(data => {
             console.log(data);
             this.totalAsset = this.getTotal(data.data)
             this.isLoadingAsset = false;
+            console.log(this.getAmountByMonth(data.data, '2018-02-07'))
         })
     }
 
     getExpense(): void {
         this.isLoadingExpense = true;
-        this.api.getExpense()
+        this.api.getExpense(this.userDetails._id)
         .subscribe(data => {
             console.log(this.getTotal(data.data));
             this.totalExpense = this.getTotal(data.data);
@@ -87,6 +88,19 @@ export class MyAssetComponent implements OnInit {
         return _.sumBy(data, function (d) {
             d.amount = Number(d.amount);
             return d.amount;
+        });
+    }
+    getAmountByMonth(data, date){
+        date = new Date(date);
+        let month = date.getMonth();
+        let filterData = _.map(data, (item) => {
+            let dataMonth = new Date(item.date).getMonth();
+            if(month === dataMonth){
+                return item;
+            } 
+        });
+        return _.sumBy(filterData, (d) => {
+            return Number(d.amount);
         });
     }
 }

@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { APIService} from '../_core/api-service'
 import { AuthService } from '../_core/auth-service';
 import { Input } from '@angular/core/src/metadata/directives';
+import { ToasterConfig } from 'angular2-toaster';
 @Component({
     selector: 'app-login',
     templateUrl: './login.html',
@@ -21,7 +22,13 @@ export class LoginComponent implements OnInit {
         this.api = api;
         this.authService = authService;
         this.router = router;
-        this.toasterconfig = this.api.initToasterConfig();
+        this.toasterconfig = 
+        new ToasterConfig({
+            showCloseButton: true, 
+            tapToDismiss: false, 
+            timeout: 0,
+            positionClass: 'toast-bottom-right'
+        });
         this.toastr = this.api.getToaster();
     }
     ngOnInit() {

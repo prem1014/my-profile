@@ -17,8 +17,8 @@ export class APIService {
   constructor(private http: Http, private toasterService: ToasterService) {
   }
   // private instance variable to hold base url
-  private apiUrl = 'http://localhost:8080/api/';
-  //private apiUrl = 'https://myprofileapi.herokuapp.com/api/'
+  //private apiUrl = 'http://localhost:8080/api/';
+  private apiUrl = 'https://myprofileapi.herokuapp.com/api/'
 
   getTotalExperience(startDate, endDate) {
     return (moment(new Date(startDate)).diff(moment(new Date(endDate)), 'month')).toString().split('-')[1];

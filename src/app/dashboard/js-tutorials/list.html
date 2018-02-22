@@ -1,49 +1,53 @@
 <div class="row custom-row">
-    <!--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div style="background-color: rgb(0, 238, 255);" class="tutorial-container">
-                    <h3>Javascript Basics</h3>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div class="tutorial-container" style="background-color:#6ac4da;">
+                        <a [routerLink]="['angSetup']"><h4>IIFE</h4></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div style="background-color: rgb(0, 238, 255);" class="tutorial-container">
+                        <a [routerLink]="['angBasics']">
+                            <h4>Closures</h4>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div class="tutorial-container" style="background-color:#717eb9;">
+                        <h4>Prototypes</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div class="tutorial-container" style="background-color:#ca6ada;">
+                        <h4>The Module pattern</h4>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div class="tutorial-container" style="background-color:#6ac4da;">
-                    <h3>Closure in Javascript</h3>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div style="background-color: rgb(0, 238, 255);" class="tutorial-container">
+                        <h4>Hoisting</h4>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div class="tutorial-container" style="background-color:#717eb9;">
-                    <h3>OO Javascript</h3>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div class="tutorial-container" style="background-color:#6ac4da;">
+                        <h4>Currying</h4>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div class="tutorial-container" style="background-color:#ca6ada;">
-                    <h3>Interview Questions</h3>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div class="tutorial-container" style="background-color:#717eb9;">
+                        <h4>The apply, call, and bind</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div class="tutorial-container" style="background-color:#ca6ada;">
+                        <h4>OOJS</h4>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div style="background-color: rgb(0, 238, 255);" class="tutorial-container">
-                    <h3>Javascript Basics</h3>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div class="tutorial-container" style="background-color:#6ac4da;">
-                    <h3>Closure in Javascript</h3>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div class="tutorial-container" style="background-color:#717eb9;">
-                    <h3>OO Javascript</h3>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div class="tutorial-container" style="background-color:#ca6ada;">
-                    <h3>Interview Questions</h3>
-                </div>
-            </div>
-        </div>
-    </div>-->
-    <h2 style="margin:15px;">Comming Soon !!!!</h2>
-</div>
+    </div>
+    <div class="row custom-row">
+        <router-outlet></router-outlet>
+    </div>

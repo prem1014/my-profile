@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
                     division: 'First(64.0%)'
                 }
             ];
-            this.myDetails.summary = 'Hello, I am Prem Prakash.I am a front end developer who always looks to enhance technical skill in web technology which help me to build a user friendly web application.I love to create highly interactive web application using new web technologies.I have worked on various web technologies like HTML, HTML5, CSS, CSS3, Responsive Design, Javascripts, Angular Js, Angular, OOJS, Jquery, Media Query, Bootstrap, Node Js'
+            this.myDetails.summary = 'Hello, I am Prem Prakash.I am a front end developer who always looks to enhance technical skill in web technology which help me to build a user friendly web application.I love to create highly interactive web application using new web technologies.I have worked on various web technologies like HTML5, CSS3, SASS, Responsive Design, Javascripts, Angular, React, OOJS, Jquery, Media Query, Bootstrap, Node Js'
             this.myDetails.experience = _.map(this.myDetails.experience, (exp => {
                 exp.todayDate = new Date();
                 exp.startDate = new Date(exp.startDate);

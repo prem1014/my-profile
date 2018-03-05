@@ -17,8 +17,8 @@ export class APIService {
   constructor(private http: Http, private toasterService: ToasterService) {
   }
   // private instance variable to hold base url
-  //private apiUrl = 'http://localhost:8080/api/';
-  private apiUrl = 'https://myprofileapi.herokuapp.com/api/'
+  private apiUrl = 'http://localhost:8080/api/';
+  //private apiUrl = 'https://myprofileapi.herokuapp.com/api/'
 
   getTotalExperience(startDate, endDate) {
     return (moment(new Date(startDate)).diff(moment(new Date(endDate)), 'month')).toString().split('-')[1];
@@ -79,6 +79,39 @@ export class APIService {
 
   getExpense(id) {
     return this.http.get(this.apiUrl + 'expense' + '/' + id)
+    .map((res: Response) => res.json())
+    .catch(
+    (error: any) =>
+      Observable.throw(error.json().error || 'Server error')
+    );
+  }
+
+  saveLike(feedback) {
+    return this.http.post(this.apiUrl + 'feedbackLike', { feedback: feedback })
+    .map((res: Response) => res.json())
+    .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  getLikes(tutorialName) {
+    return this.http.get(this.apiUrl + 'feedbackLike' + '/' + tutorialName)
+    .map((res: Response) => res.json())
+    .catch(
+    (error: any) =>
+      Observable.throw(error.json().error || 'Server error')
+    );
+  }
+
+  saveComment(commentDetails){
+    return this.http.post(this.apiUrl + 'feedbackComment', {commentDetails: commentDetails})
+    .map((res: Response) => res.json())
+    .catch(
+      (error: any) =>
+         Observable.throw(error.json().error || 'Server Error')
+    )
+  }
+
+  getComments(tutorialName) {
+    return this.http.get(this.apiUrl + 'feedbackComment' + '/' + tutorialName)
     .map((res: Response) => res.json())
     .catch(
     (error: any) =>

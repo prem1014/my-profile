@@ -1,4 +1,6 @@
-import {Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { APIService } from '../../../_core/api-service';
 
 @Component({
     selector: 'app-iife',
@@ -7,10 +9,24 @@ import {Component, OnInit } from '@angular/core';
 })
 
 export default class IIFEComponent implements OnInit {
-    constructor(){
+    public feedback;
+    public user;
+    public header;
+
+    constructor(private API: APIService) {
+        this.user = JSON.parse(sessionStorage.getItem('userRole'));
+        let userId = this.user ? this.user._id : 'Guest';
+        this.feedback = {
+            userId: userId,
+            tutorialName: 'IIFE'
+        }
+        this.header = {
+            titleSrc: '../../../assets/js.jpg',
+            title: 'IIFE'
+        }
     }
 
     ngOnInit() {
-        
+
     }
 }

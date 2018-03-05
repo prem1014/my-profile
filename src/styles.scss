@@ -53,3 +53,12 @@ hr{
   .error-message{
       color:#ec0d0d;
   }
+  .like-section {
+    position: relative;
+    float: right;
+    top: -51px;
+    color: #13cc13;
+    >app-btn-like{
+        float: right;
+    }
+}

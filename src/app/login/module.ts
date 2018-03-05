@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule }   from '@angular/forms';
-import {ToasterModule} from 'angular2-toaster';;
+import {ToasterModule} from 'angular2-toaster';
 import { LoginComponent } from './login.component';
 const routes: Routes = [
   {

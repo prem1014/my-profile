@@ -201,8 +201,8 @@
               {{experienceDetail.startDate | date}}
             </span>
             <span>-</span>
-            <span *ngIf="experienceDetail.todayDate.getMonth() === experienceDetail.endDate.getMonth()" class="current">Current</span>
-            <span *ngIf="experienceDetail.todayDate.getMonth() !== experienceDetail.endDate.getMonth()" class="span-color">
+            <span *ngIf="experienceDetail.tillNow" class="current">Current</span>
+            <span *ngIf="!experienceDetail.tillNow" class="span-color">
               {{experienceDetail.endDate | date}}
             </span>
             <span class="span-color" style="margin-left:30px;">{{experienceDetail.totalExp}} months</span>

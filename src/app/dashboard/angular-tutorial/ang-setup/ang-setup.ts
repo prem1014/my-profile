@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AngSetupComponent implements OnInit {
+    public header: any
+    constructor() {
+        this.header = {
+            titleSrc: '../../../assets/ang.png',
+            title: 'angular Set up'
+        }
+    }
     ngOnInit(){
         
     }

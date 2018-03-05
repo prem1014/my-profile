@@ -9,6 +9,10 @@ export const route: Routes = [
             {
                 path: 'iife',
                 loadChildren: 'app/dashboard/js-tutorials/iife/module#IIFEModule'
+            },
+            {
+                path: 'closure',
+                loadChildren: 'app/dashboard/js-tutorials/closure/module#ClosureModule'
             }
         ]
     }

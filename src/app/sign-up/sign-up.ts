@@ -32,7 +32,7 @@ export class SignUpComponent implements OnInit {
         this.api.saveSignUpDetails(this.user)
         .subscribe(data => {
             this.loading = 'false'
-            this.toastr.success('Your data has saved');
+            this.toastr.success('Thank you for your registrtion !!!!');
         });
     }
 }

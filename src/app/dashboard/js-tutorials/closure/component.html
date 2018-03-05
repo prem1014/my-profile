@@ -1,0 +1,54 @@
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="row">
+            <app-header [header]="header"></app-header>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h4><b>Closure</b>
+                    is a speacial feature available in javascript. It can be defined in two steps 
+                    <ol>
+                        <li> 
+                            A function inside another function and the inner function has access to 
+                            the scope of outer function.
+                        </li>
+                        <li>
+                                Though the outer function will get executed still inner function can access
+                                the scope of outer function. This is the most powerfull feature.
+                        </li>
+                    </ol>
+                </h4>
+                <h4>
+                    Examples
+                    <div class="row code-example">
+                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                <span></span><span>function addNumber</span><span> (num1</span><span>)</span>
+                                <span> {{'{'}}</span><br>
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;return function {{'(num2)' + ' {'}}
+                                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return {{'num1' + ' + ' + 'num2 ;'}}<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'}'}}
+                                </span><br>
+                                <span>{{'}'}}</span><br>
+                                <span>//Execute the above functions with different inputs</span><br>
+                                <span>var add5 = addNumber(5);</span><br>
+                                <span>add5(1) => 6 </span><br>
+                                <span>add5(2) => 7 </span><br>
+                                <span>add5(10) => 15 </span><br>
+                                <span>add5(4) => 9 </span><br>
+                                <span>// you can explore it with some more examples</span>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-right" style="width:18%;">
+                            <app-btn-like [feedback]="feedback" (commentEvent)="enterComment($event)"></app-btn-like>
+                        </div>
+                    </div>
+                </h4>
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [hidden]="!isCommentSelected">
+                    <app-comment mode="create" [commentDetails]="commentDetails"></app-comment>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <app-comment mode="read" [commentDetails]="commentDetails"></app-comment>
+                </div>
+        </div>
+    </div>

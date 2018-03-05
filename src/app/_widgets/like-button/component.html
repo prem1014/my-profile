@@ -1,0 +1,8 @@
+<button class="btn btn-success" style="color:rgb(239, 247, 239);" (click)="saveLike()">
+    <span *ngIf="loading === 'false'" class="glyphicon glyphicon-thumbs-up">
+            {{totalLikes}}</span>
+    <span *ngIf="loading === 'true'">
+            <i class="fa fa-spinner fa-spin"></i>
+        </span>
+</button>
+<button class="btn btn-info" style="color:rgb(293, 247, 293)" (click)="comment()">Comment</button>

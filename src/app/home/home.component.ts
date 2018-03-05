@@ -52,6 +52,7 @@ export class HomeComponent implements OnInit {
                     var b = moment(exp.endDate,'M/D/YYYY');
                     var diffDays = b.diff(a, 'month');
                     exp.totalExp = diffDays;
+                    exp.tillNow = true;
                     return exp;
                 }
                 exp.endDate = new Date(exp.endDate);

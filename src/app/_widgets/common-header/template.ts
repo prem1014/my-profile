@@ -7,10 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class CommonHeaderComponent implements OnInit {
-    @Input() title: string;
-    public headerTitle: string;
+    @Input() header: any;
     constructor(){}
     ngOnInit(){
-        this.headerTitle = this.title
+        
     }
 }

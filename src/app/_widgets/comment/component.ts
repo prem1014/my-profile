@@ -14,7 +14,6 @@ export class CommentComponent implements OnInit {
     public toasterconfig;
     public toastr;
     public commentList;
-    public loading: string;
     public saving: string;
     //@Output() commentAdded: EventEmitter<object> = new EventEmitter<object>(); 
     
@@ -35,6 +34,7 @@ export class CommentComponent implements OnInit {
     
     saveComment() {
         this.saving = 'true';
+        this.commentDetails.date = new Date();
         this.API.saveComment(this.commentDetails)
         .subscribe(response => {
             //console.log(response);
@@ -45,11 +45,13 @@ export class CommentComponent implements OnInit {
     }
 
     getComments(tutorialName) {
-        this.loading = 'true';
+        this.commentDetails.loading = 'true';
         this.API.getComments(tutorialName)
         .subscribe(response => {
-            this.commentList = response.data;
-            this.loading = 'false';
+            this.commentDetails.loading = 'false';
+            //this.commentList = response.data;
+            this.commentDetails.commentList = response.data;
+            this.commentDetails.totalComment = response.data.length;
         })
     }
 }

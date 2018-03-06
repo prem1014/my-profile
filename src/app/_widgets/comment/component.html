@@ -29,12 +29,13 @@
         </div>
     </div>
 </form>
-<div *ngIf="mode === 'read'">
-    <div *ngFor="let commentDetail of commentList" class="comment-section">
-        <h2><b>Submitted by: {{commentDetail.name}}</b></h2>    
+<div *ngIf="mode === 'read'" class="comment-container">
+    <div class="badge"><b>{{commentDetails.totalComment}}</b></div>
+    <div *ngFor="let commentDetail of commentDetails.commentList" class="comment-section">
+        <h2 style="display:inline-block;"><b>Submitted by: {{commentDetail.name}}</b> - {{commentDetail.date | date}}</h2>    
         <h4 style="color:#8BC34A;">{{commentDetail.message}}</h4>
     </div>
-    <span *ngIf="loading === 'true'">
+    <span *ngIf="commentDetails.loading === 'true'">
             <i class="fa fa-spinner fa-spin"></i>
     </span>
 </div>

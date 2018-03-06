@@ -22,17 +22,25 @@
             <h4>
                 Examples
                 <div class="row code-example">
-                    <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                             <span>( </span><span>function</span><span> (</span><span>)</span>
                             <span> {{'{'}}</span><br>
                             <span>&nbsp;&nbsp;&nbsp;&nbsp;{{"let name = "+ "'xyz';"}}</span><span style="color:grey;">{{'  //name variable is not accessible from outside'}}</span><br>
                             <span>{{'}'}}</span><span>)();</span>
                     </div>
-                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 pull-right">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-right" style="width:19%;">
                             <app-btn-like [feedback]="feedback" (commentEvent)="enterComment($event)"></app-btn-like>
                     </div>
                 </div>
             </h4>
         </div>
     </div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [hidden]="!isCommentSelected">
+            <app-comment mode="create" [commentDetails]="commentDetails"></app-comment>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <app-comment mode="read" [commentDetails]="commentDetails"></app-comment>
+        </div>
+</div>
 </div>

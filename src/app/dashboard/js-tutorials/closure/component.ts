@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 
 @Component({
     selector: 'app-closure',
@@ -12,7 +12,7 @@ export class ClosureComponent implements OnInit {
     public feedback;
     public commentDetails;
     public isCommentSelected: boolean;
-    constructor(){
+    constructor(private ele: ElementRef){
         this.user = JSON.parse(sessionStorage.getItem('userRole'));
         let userId = this.user ? this.user._id : 'Guest';
         this.feedback = {
@@ -35,5 +35,6 @@ export class ClosureComponent implements OnInit {
 
     enterComment(event) {
         this.isCommentSelected = event;
+        window.scrollBy(0, this.ele.nativeElement.offsetTop);
     }
 }

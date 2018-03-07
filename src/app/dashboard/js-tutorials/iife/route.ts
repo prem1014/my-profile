@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import IIFEComponent from './component';
+import { IIFEComponent } from './component';
 
 export const route: Routes = [
     {

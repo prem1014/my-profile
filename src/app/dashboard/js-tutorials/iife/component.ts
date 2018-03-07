@@ -8,7 +8,7 @@ import { APIService } from '../../../_core/api-service';
     styleUrls: ['./iife.scss']
 })
 
-export default class IIFEComponent implements OnInit {
+export class IIFEComponent implements OnInit {
     public feedback;
     public user;
     public header;

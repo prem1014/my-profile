@@ -5,6 +5,7 @@ import { ClosureComponent } from './component';
 import { LikeButtonModule } from '../../../_widgets/like-button/module';
 import { CommonHeaderModule } from '../../../_widgets/common-header/module';
 import { CommentModule } from '../../../_widgets/comment/module';
+import { ScrollTrackerModule } from '../../../_widgets/scroll-tracker/modulte';
 
 @NgModule({
     declarations: [ClosureComponent],
@@ -12,7 +13,8 @@ import { CommentModule } from '../../../_widgets/comment/module';
         RouterModule.forChild(route),
         LikeButtonModule,
         CommonHeaderModule,
-        CommentModule
+        CommentModule,
+        ScrollTrackerModule
     ],
     exports: [RouterModule]
 })

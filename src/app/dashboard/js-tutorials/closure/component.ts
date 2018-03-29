@@ -1,9 +1,21 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
+import { trigger, transition, animate, style } from '@angular/animations'
 
 @Component({
     selector: 'app-closure',
     templateUrl: './component.html',
-    styleUrls: ['./component.scss']
+    styleUrls: ['./component.scss'],
+    animations: [
+        trigger('slideInOut', [
+          transition(':enter', [
+            style({transform: 'translateY(-100%)'}),
+            animate('800ms ease-in', style({transform: 'translateY(0%)'}))
+          ]),
+          transition(':leave', [
+            animate('800ms ease-in', style({transform: 'translateY(-100%)'}))
+          ])
+        ])
+      ]
 })
 
 export class ClosureComponent implements OnInit {
@@ -11,6 +23,7 @@ export class ClosureComponent implements OnInit {
     public user;
     public feedback;
     public commentDetails;
+    public answer;
     public isCommentSelected: boolean;
     constructor(private ele: ElementRef){
         this.user = JSON.parse(sessionStorage.getItem('userRole'));

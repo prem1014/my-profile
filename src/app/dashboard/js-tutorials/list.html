@@ -1,75 +1,85 @@
-<div class="row custom-row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <div class="tutorial-container" style="background-color:#6ac4da;">
-                        <a [routerLink]="['iife']"><h4>IIFE</h4></a>
-                    </div>
+<div class="row custom-row" [@slideInOut]>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="tutorial-container" style="box-shadow: 0px 1px 6px grey;background-color:#6ac4da;">
+                    <a [routerLink]="['iife']">
+                        <h4>IIFE</h4>
+                    </a>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <div style="background-color: rgb(0, 238, 255);" class="tutorial-container">
-                        <a [routerLink]="['closure']">
-                            <h4>Closures</h4>
-                        </a>
-                    </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div style="box-shadow: 0px 1px 6px grey;background-color: rgb(0, 238, 255);" class="tutorial-container">
+                    <a [routerLink]="['closure']">
+                        <h4>Closures</h4>
+                    </a>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <div class="tutorial-container" style="background-color:#717eb9;">
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="tutorial-container" style="box-shadow: 0px 1px 6px grey;background-color:#fdcef1;">
+                    <a [routerLink]="['prototype']">
                         <h4>Prototypes</h4>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <div class="tutorial-container" style="background-color:#ca6ada;">
-                        <h4>JS Design Pattern</h4>
-                    </div>
+                    </a>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <div style="background-color: rgb(0, 238, 255);" class="tutorial-container">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="tutorial-container" style="box-shadow: 0px 1px 6px grey;background-color:#ca6ada;">
+                    <a [routerLink]="['hoisting']">
                         <h4>Hoisting</h4>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <div class="tutorial-container" style="background-color:#6ac4da;">
-                        <h4>Currying</h4>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <div class="tutorial-container" style="background-color:#717eb9;">
-                        <h4>The apply, call, and bind</h4>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <div class="tutorial-container" style="background-color:#ca6ada;">
-                        <h4>OOJS</h4>
-                    </div>
+                    </a>
                 </div>
             </div>
-            <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div style="background-color: rgb(0, 238, 255);" class="tutorial-container">
-                            <h4>JS Unit Testing</h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="tutorial-container" style="background-color:#6ac4da;">
-                            <h4>Suite and Specs</h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="tutorial-container" style="background-color:#717eb9;">
-                            <h4>beforeEach and afterEach</h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="tutorial-container" style="background-color:#ca6ada;">
-                            <h4>spyOn and createSpy</h4>
-                        </div>
-                    </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div style="box-shadow: 0px 1px 6px grey;background-color:rgb(57, 182, 197);" class="tutorial-container">
+                    <a [routerLink]="['designPattern']">
+                        <h4>JS Design Pattern</h4>
+                    </a>
                 </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="tutorial-container" style="box-shadow: 0px 1px 6px grey;background-color:#ca74a0;">
+                    <a [routerLink]="['currying']">
+                    <h4>Currying</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="tutorial-container" style="box-shadow: 0px 1px 6px grey;background-color:#71b994;">
+                    <h4>The apply, call, and bind</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="tutorial-container" style="box-shadow: 0px 1px 6px grey;background-color:#dab66a;">
+                    <h4>OOJS</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div style="box-shadow: 0px 1px 6px grey;background-color: rgb(171, 175, 175);" class="tutorial-container">
+                    <h4>JS Unit Testing</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="tutorial-container" style="box-shadow: 0px 1px 6px grey;background-color:#846ada;">
+                    <h4>Suite and Specs</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="tutorial-container" style="box-shadow: 0px 1px 6px grey;background-color:#FF9800;">
+                    <h4>beforeEach and afterEach</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="tutorial-container" style="box-shadow: 0px 1px 6px grey;background-color:#CDDC39;">
+                    <h4>spyOn and createSpy</h4>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row custom-row">
-        <router-outlet></router-outlet>
-    </div>
+</div>
+<div class="row custom-row">
+    <router-outlet></router-outlet>
+</div>

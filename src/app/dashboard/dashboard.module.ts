@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard.component';
 import { AuthGuard } from '../_core/auth-guard.service';
+import { patch } from 'webdriver-js-extender';
 const routes: Routes = [
   {
     path: '',
@@ -25,6 +26,10 @@ const routes: Routes = [
         path: 'myAsset',
         canActivate: [AuthGuard],
         loadChildren: 'app/dashboard/my-asset/module#MyAssetModule'
+      },
+      {
+        path: 'mathematics',
+        loadChildren: 'app/dashboard/mathematics/module#MathematicsModule'
       }
     ]
   }

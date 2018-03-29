@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { trigger, transition, animate, style } from '@angular/animations'
 import * as moment from 'moment';
 import * as _ from 'lodash';
 
@@ -7,7 +8,18 @@ import { APIService } from '../_core/api-service';
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss']
+    styleUrls: ['./home.component.scss'],
+    animations: [
+        trigger('slideInOut', [
+          transition(':enter', [
+            style({transform: 'translateY(-100%)'}),
+            animate('800ms ease-in', style({transform: 'translateY(0%)'}))
+          ]),
+          transition(':leave', [
+            animate('800ms ease-in', style({transform: 'translateY(-100%)'}))
+          ])
+        ])
+      ]
 })
 export class HomeComponent implements OnInit {
     myDetails: any = {};

@@ -1,13 +1,26 @@
 import { Component,OnInit } from '@angular/core';
+
 import { APIService } from '../../_core/api-service';
 import { ToasterConfig } from 'angular2-toaster';
 
 import * as _ from 'lodash'
+import { trigger, transition, animate, style } from '@angular/animations'
 
 @Component({
     selector: 'app-my-asset',
     templateUrl: './component.html',
-    styleUrls: ['./component.scss']
+    styleUrls: ['./component.scss'],
+    animations: [
+        trigger('slideInOut', [
+          transition(':enter', [
+            style({transform: 'translateY(-100%)'}),
+            animate('800ms ease-in', style({transform: 'translateY(0%)'}))
+          ]),
+          transition(':leave', [
+            animate('800ms ease-in', style({transform: 'translateY(-100%)'}))
+          ])
+        ])
+      ]
 })
 
 export class MyAssetComponent implements OnInit {
@@ -22,6 +35,8 @@ export class MyAssetComponent implements OnInit {
     public isSavingExpense;
     public isLoadingAsset;
     public isLoadingExpense;
+    public monthlySaving;
+    public monthlyExpense;
     constructor(private api: APIService){
         //this.toasterconfig = this.api.initToasterConfig();
         this.toasterconfig = 
@@ -71,6 +86,7 @@ export class MyAssetComponent implements OnInit {
             this.totalAsset = this.getTotal(data.data)
             this.isLoadingAsset = false;
             console.log(this.getAmountByMonth(data.data, '2018-02-07'))
+            this.monthlySaving = this.getAmountByMonth(data.data, '2018-02-07')
         })
     }
 
@@ -81,6 +97,7 @@ export class MyAssetComponent implements OnInit {
             console.log(this.getTotal(data.data));
             this.totalExpense = this.getTotal(data.data);
             this.isLoadingExpense = false;
+            this.monthlyExpense = this.getAmountByMonth(data.data, '2018-02-07')
         })
     }
 
@@ -100,7 +117,9 @@ export class MyAssetComponent implements OnInit {
             } 
         });
         return _.sumBy(filterData, (d) => {
-            return Number(d.amount);
+            if(d){
+                return Number(d.amount);
+            }
         });
     }
 }

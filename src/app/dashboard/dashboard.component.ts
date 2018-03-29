@@ -1,11 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { trigger, transition, animate, style } from '@angular/animations';
 import { APIService } from '../_core/api-service';
+
 import * as _ from 'lodash';
 
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
-    styleUrls: ['./dashboard.component.scss']
+    styleUrls: ['./dashboard.component.scss'],
+    animations: [
+      trigger('slideInOut', [
+        transition(':enter', [
+          style({transform: 'translateY(-100%)'}),
+          animate('800ms ease-in', style({transform: 'translateY(0%)'}))
+        ]),
+        transition(':leave', [
+          animate('800ms ease-in', style({transform: 'translateY(-100%)'}))
+        ])
+      ])
+    ]
 })
 export class DashboardComponent implements OnInit {
     contactDetails: any = [];
@@ -16,7 +29,7 @@ export class DashboardComponent implements OnInit {
         this.api = api;
     }
     ngOnInit() {
-        this.api.getMessageDetails()
+        /*this.api.getMessageDetails()
         .subscribe(data => {
             this.contactDetails = data.messageDetails
             this.getDataForGraph(this.contactDetails);
@@ -62,9 +75,9 @@ export class DashboardComponent implements OnInit {
                 } 
               ]
             }
-          ];
+          ];*/
     }
-    getDataForGraph(messages){
+    /*getDataForGraph(messages){
         var data;
         data = _.map(messages, (message) =>{
             var month = (new Date(message.messageDate).getMonth()) + 1;
@@ -83,5 +96,5 @@ export class DashboardComponent implements OnInit {
             }
             return messageData;
         });
-    }
+    }*/
 };

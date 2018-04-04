@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule} from '@angular/router';
+
+import { SlideAnimationModule } from '../../_widgets/animation/module';
 import { AngularTutorialComponent} from './list';
 
 const routes: Routes = [
@@ -23,6 +25,7 @@ const routes: Routes = [
         AngularTutorialComponent
     ],
     imports: [
+        SlideAnimationModule,
         RouterModule.forChild(routes)
     ],
     exports: [RouterModule]

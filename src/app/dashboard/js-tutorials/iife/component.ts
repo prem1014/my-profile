@@ -1,23 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-import { APIService } from '../../../_core/api-service';
+import { ApiService } from '../../../_core/api.service';
 import { trigger, transition, animate, style } from '@angular/animations'
 
 @Component({
     selector: 'app-iife',
     templateUrl: './component.html',
     styleUrls: ['./iife.scss'],
-    animations: [
-        trigger('slideInOut', [
-          transition(':enter', [
-            style({transform: 'translateY(-100%)'}),
-            animate('800ms ease-in', style({transform: 'translateY(0%)'}))
-          ]),
-          transition(':leave', [
-            animate('800ms ease-in', style({transform: 'translateY(-100%)'}))
-          ])
-        ])
-      ]
 })
 
 export class IIFEComponent implements OnInit {
@@ -27,7 +16,7 @@ export class IIFEComponent implements OnInit {
     public commentDetails;
     public isCommentSelected: boolean;
 
-    constructor(private API: APIService) {
+    constructor(private API: ApiService) {
         this.user = JSON.parse(sessionStorage.getItem('userRole'));
         let userId = this.user ? this.user._id : 'Guest';
         this.feedback = {

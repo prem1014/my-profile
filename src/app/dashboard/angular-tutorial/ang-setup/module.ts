@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import { AngSetupComponent } from './ang-setup';
 import { CommonHeaderModule } from '../../../_widgets/common-header/module';
+import { SlideAnimationModule } from '../../../_widgets/animation/module'
 
 const route: Routes = [
     {
@@ -14,6 +15,7 @@ const route: Routes = [
     declarations: [AngSetupComponent],
     imports: [
         CommonHeaderModule,
+        SlideAnimationModule,
         RouterModule.forChild(route)
     ],
     exports: [RouterModule]

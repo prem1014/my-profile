@@ -1,6 +1,6 @@
 import { Component, OnInit, Input,Output, EventEmitter } from '@angular/core';
-import { APIService } from '../../_core/api-service';
-import { ToasterConfig } from 'angular2-toaster';
+import { ApiService } from '../../_core/api.service';
+//import { ToasterConfig } from 'angular2-toaster';
 
 @Component({
     selector: 'app-comment',
@@ -17,15 +17,8 @@ export class CommentComponent implements OnInit {
     public saving: string;
     //@Output() commentAdded: EventEmitter<object> = new EventEmitter<object>(); 
     
-    constructor(private API: APIService){
-        this.toasterconfig = 
-        new ToasterConfig({
-            showCloseButton: true, 
-            tapToDismiss: false, 
-            timeout: 0,
-            positionClass: 'toast-top-right'
-        });
-        this.toastr = this.API.getToaster();
+    constructor(private API: ApiService){
+        
     }
 
     ngOnInit(){
@@ -47,7 +40,7 @@ export class CommentComponent implements OnInit {
     getComments(tutorialName) {
         this.commentDetails.loading = 'true';
         this.API.getComments(tutorialName)
-        .subscribe(response => {
+        .subscribe((response: any) => {
             this.commentDetails.loading = 'false';
             //this.commentList = response.data;
             this.commentDetails.commentList = response.data;

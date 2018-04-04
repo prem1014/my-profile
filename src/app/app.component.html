@@ -1,63 +1,63 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div class="container-fluid">
   <header class="row">
-    <nav class="navbar navbar-inverse custom-nav">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" routerLink="/home">Prem Prakash
-            <span>Front End Consultant</span>
-          </a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav">
-            <li>
-              <a routerLink="/contactMe">Contact Me</a>
+    <div class="col-12">
+      <nav class="navbar navbar-expand-sm navbar-dark fixed-top custom-nav">
+        <a class="navbar-brand" [routerLink]="['home']">Prem Prakash
+          <span>Front End Consultant</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['contactMe']">Contact Me</a>
             </li>
-            <li>
-              <a routerLink="/dashboard">Dashboard</a>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['dashboard']">Dashboard</a>
             </li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li *ngIf="isLoggedIn === 'true'">
-              <span style="font-weight:bold;">{{userLoggedIn.name}}</span><br>
-              <span>{{userLoggedIn._id}}</span>
+          <ul class="navbar-nav ml-auto">
+              <li *ngIf="isLoggedIn === 'true'" style=" border-right: 1px solid #dedddd;padding-right: 7px;">
+                  <span style="font-weight:bold;">{{userLoggedIn.name}}</span><br>
+                  <span>{{userLoggedIn._id}}</span>
+                </li>
+            <li class="nav-item" *ngIf="isLoggedIn === 'false'">
+              <a class="nav-link" [routerLink]="['login']">
+                <i class="fas fa-sign-in-alt"></i>Login
+              </a>
             </li>
-            <li *ngIf="isLoggedIn === 'true'">
-              <a href="#" (click)="logOut($event)">
-                <span class="glyphicon glyphicon-log-out"></span> Log Out</a>
-            </li>
-            <li *ngIf="isLoggedIn === 'false'">
-              <a routerLink="/login">
-                <span class="glyphicon glyphicon-log-in"></span> Login</a>
+            <li class="nav-item" *ngIf="isLoggedIn === 'true'">
+              <a class="nav-link" href="#" (click)="logOut($event)">
+                <i class="fas fa-sign-out-alt"></i>Logout
+              </a>
             </li>
           </ul>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </header>
   <router-outlet></router-outlet>
   <footer class="row footer">
-    <p>Find me on social media.</p>
-    <a href="https://www.facebook.com/premtcs" target="_blank">
-      <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/prem-prakash-55378869/" target="_blank">
-      <i class="fa fa-linkedin w3-hover-opacity"></i>
-    </a>
-    <div>
-      <span>Last updated on 07-March-2018</span>
-    </div>
+    <div class="col-12">
+      <p>Find me on social media.</p>
+      <a href="https://www.facebook.com/premtcs" target="_blank">
+        <i class="fab fa-facebook w3-hover-opacity"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/prem-prakash-55378869/" target="_blank">
+        <i class="fab fa-linkedin w3-hover-opacity"></i>
+      </a>
+      <div>
+        <span>Last updated on 02-April-2018</span>
+      </div>
 
-    <div>
-      <span>Designed and developed by Prem Prakash</span>
-    </div>
-    <div>
-        © 2018 Copyright
+      <div>
+        <span>Designed and developed by Prem Prakash</span>
+      </div>
+      <div>
+          Copyright (©) 2018. All rights reserved.
+      </div>
     </div>
   </footer>
 </div>
+<app-scroll-top></app-scroll-top>

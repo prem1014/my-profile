@@ -1,38 +1,48 @@
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" scroll-tracker [@slideInOut]>
+<div class="col-12 slide-down" slide-animation scroll-tracker>
     <div class="row">
-        <app-header [header]="header"></app-header>
+        <div class="col-12">
+                <app-header [header]="header"></app-header>
+        </div>
     </div>
     <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h4><b>IIFE</b> (Immediately Invoked Function Expression) 
-                is a JavaScript function that runs as soon as it is
-                defined.It is also called as Self-Executing Anonymous Function.
-                It has mainly two parts 
-                <ul>
-                    <li> 
-                        The first is the anonymous function with lexical
-                         scope enclosed within the Grouping Operator ().
-                         This prevents from polluting the global scope.
-                    </li>
-                    <li>
-                            The second part is creating the immediately executing function expression (), through which the JavaScript engine will directly interpret the function.
-                    </li>
-                </ul>
-            </h4>
-            <h4>
-                Examples
-                <div class="row code-example">
-                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                            <span>( </span><span>function</span><span> (</span><span>)</span>
-                            <span> {{'{'}}</span><br>
-                            <span>&nbsp;&nbsp;&nbsp;&nbsp;{{"let name = "+ "'xyz';"}}</span><span style="color:grey;">{{'  //name variable is not accessible from outside'}}</span><br>
-                            <span>{{'}'}}</span><span>)();</span>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 pull-right btn-container">
-                            <app-btn-like [feedback]="feedback" (commentEvent)="enterComment($event)"></app-btn-like>
-                    </div>
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12">
+                        <h4><b>IIFE</b> (Immediately Invoked Function Expression) 
+                            is a JavaScript function that runs as soon as it is
+                            defined.It is also called as Self-Executing Anonymous Function.
+                            It has mainly two parts 
+                            <ul>
+                                <li> 
+                                    The first is the anonymous function with lexical
+                                     scope enclosed within the Grouping Operator ().
+                                     This prevents from polluting the global scope.
+                                </li>
+                                <li>
+                                        The second part is creating the immediately executing function expression (), through which the JavaScript engine will directly interpret the function.
+                                </li>
+                            </ul>
+                        </h4>
                 </div>
-            </h4>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                        <h4>
+                                Examples
+                                <div class="row code-example">
+                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                            <span>( </span><span>function</span><span> (</span><span>)</span>
+                                            <span> {{'{'}}</span><br>
+                                            <span>&nbsp;&nbsp;&nbsp;&nbsp;{{"let name = "+ "'xyz';"}}</span><span style="color:grey;">{{'  //name variable is not accessible from outside'}}</span><br>
+                                            <span>{{'}'}}</span><span>)();</span>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 pull-right btn-container">
+                                            <app-btn-like [feedback]="feedback" (commentEvent)="enterComment($event)"></app-btn-like>
+                                    </div>
+                                </div>
+                            </h4>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row" style="margin-top:10px;">

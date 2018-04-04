@@ -1,0 +1,7 @@
+<div id="snackbar" class="success" [class.show]="isSuccessVisible">
+    {{displayMessage}}
+</div>
+
+<div id="snackbar" class="error" [class.show]="isErrorVisible" [class.hide]="!isErrorVisible">
+        {{displayMessage}}
+</div>

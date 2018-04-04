@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AngBasicsComponent } from './ang-basics';
 import { CommonHeaderModule } from '../../../_widgets/common-header/module';
+import { SlideAnimationModule } from '../../../_widgets/animation/module'
 
 const routes: Routes = [
     {
@@ -15,6 +16,7 @@ const routes: Routes = [
     imports: [
         CommonModule,
         CommonHeaderModule,
+        SlideAnimationModule,
         RouterModule.forChild(routes)
     ],
     exports: [RouterModule]

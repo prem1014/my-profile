@@ -1,46 +1,62 @@
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" scroll-tracker [@slideInOut]>
+<div class="col-12 slide-down" slide-animation scroll-tracker>
     <div class="row">
-        <app-header [header]="header"></app-header>
+        <div class="col-12">
+            <app-header [header]="header"></app-header>
+        </div>
     </div>
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h4>Almost all objects in javascript are instances of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
-             .All JavaScript objects inherit properties and methods from a prototype. Let us take one example. I am going to create a constructor function with some property and method.
+            <h4>Almost all objects in javascript are instances of
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+                .All JavaScript objects inherit properties and methods from a prototype. Let us take one example. I am going to create a
+                constructor function with some property and method.
             </h4>
         </div>
     </div>
     <div class="row code-example">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h4><span class="keword-color">{{"function "}}</span>{{"Person(name, age) {"}}</h4>
-            <h4 class="first-indent"><span class="keword-color">{{"this"}}</span>{{".name = name;"}}</h4>
-            <h4 class="first-indent"><span class="keword-color">{{"this"}}</span>{{".age = age;"}}</h4>
+            <h4>
+                <span class="keword-color">{{"function "}}</span>{{"Person(name, age) {"}}</h4>
+            <h4 class="first-indent">
+                <span class="keword-color">{{"this"}}</span>{{".name = name;"}}</h4>
+            <h4 class="first-indent">
+                <span class="keword-color">{{"this"}}</span>{{".age = age;"}}</h4>
             <h4>{{'}'}}</h4>
-            <h4><span class="keword-color">{{"let "}}</span>{{"person1 = "}}<span class="keword-color">{{"new "}}</span> {{"Person('Prem Prakash', '29')"}}</h4><br>
+            <h4>
+                <span class="keword-color">{{"let "}}</span>{{"person1 = "}}
+                <span class="keword-color">{{"new "}}</span> {{"Person('Prem Prakash', '29')"}}</h4>
+            <br>
             <h4>{{"// Let's add some properties to the prototype's of Person function"}}</h4>
             <h4>{{"Person.prototype.address = 'Pune-411057'"}}</h4>
-            <h4>{{"Person.prototype.age = '28'"}}</h4><br>
-            <h4>{{"// do not set the prototype Person.prototype = {address:'Pune-411057',age:'28'}; this will break the prototype chain"}}</h4>
+            <h4>{{"Person.prototype.age = '28'"}}</h4>
+            <br>
+            <h4>{{"// do not set the prototype Person.prototype = {address:'Pune-411057',age:'28'}; this will break the prototype
+                chain"}}</h4>
             <h4>{{"// o.[[Prototype]] has properties address and age:"}}</h4>
             <h4>{{"// Finally, o.[[Prototype]].[[Prototype]] is null."}}</h4>
             <h4>{{"// This is the end of the prototype chain, as null,"}}</h4>
             <h4>{{"// by definition, has no [[Prototype]]."}}</h4>
             <h4>{{"// Thus, the full prototype chain looks like:"}}</h4>
             <h4>{{"// {name: 'Prem Prakash', age: 29} ---> {address: 'Pune-411057', age: 28} ---> null"}}</h4>
-            <h4>This is called prototype chain.</h4><br>
+            <h4>This is called prototype chain.</h4>
+            <br>
             <h4>{{ "console.log(person1.name)"}} {{"// Prem Prakash"}}</h4>
-            <h4>{{"// Is there an 'name' own property on person1? Yes, and its value is 'Prem Prakash'."}}</h4><br>
+            <h4>{{"// Is there an 'name' own property on person1? Yes, and its value is 'Prem Prakash'."}}</h4>
+            <br>
             <h4>{{ "console.log(person1.age)"}} {{"// 29"}}</h4>
-            <h4>{{"// Is there an 'age' own property on person1? Yes, and its value is '29'."}}</h4> 
-            <h4>{{"// The prototype also has a 'age' property, but it is not visited."}}</h4> 
-            <h4>{{"// This is called property shadowing."}}</h4><br>
+            <h4>{{"// Is there an 'age' own property on person1? Yes, and its value is '29'."}}</h4>
+            <h4>{{"// The prototype also has a 'age' property, but it is not visited."}}</h4>
+            <h4>{{"// This is called property shadowing."}}</h4>
+            <br>
             <h4>{{"console.log(person1.address)"}}</h4>
             <h4>{{"// Is there a 'address' own property on person1? No, check its prototype."}}</h4>
-            <h4>{{"// Is there a 'address' own property on person1.[[Prototype]]? Yes, its value is 'Pune-411057'."}}</h4><br> 
+            <h4>{{"// Is there a 'address' own property on person1.[[Prototype]]? Yes, its value is 'Pune-411057'."}}</h4>
+            <br>
             <h4>{{"// console.log(person1.fullName)"}} {{"// undefined"}}</h4>
             <h4>{{"// Is there a 'fullName' own property on person1? No, check its prototype."}}</h4>
-            <h4>{{"// Is there a 'fullName' own property on person1.[[Prototype]]? No, check its prototype."}}</h4> 
+            <h4>{{"// Is there a 'fullName' own property on person1.[[Prototype]]? No, check its prototype."}}</h4>
             <h4>{{"// person1.[[Prototype]].[[Prototype]] is null, stop searching,"}}</h4>
-            <h4>{{"// no property found, return undefined."}}</h4>       
+            <h4>{{"// no property found, return undefined."}}</h4>
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
-import { APIService } from '../../_core/api-service';
+import { ApiService } from '../../_core/api.service';
 
 @Component({
     selector: 'app-btn-like',
@@ -12,7 +12,7 @@ export class LikeButtonComponent implements OnInit {
     public loading: string = 'false';
     @Input() feedback : any;
     @Output() commentEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
-    constructor(private API: APIService) {
+    constructor(private API: ApiService) {
         
     }
     ngOnInit() {
@@ -30,7 +30,7 @@ export class LikeButtonComponent implements OnInit {
     getLike(tutorialName) {
         this.loading = 'true';
         this.API.getLikes(tutorialName)
-        .subscribe(likes => {
+        .subscribe((likes: any) => {
             this.loading = 'false';
             this.totalLikes = this.getTotalLikeCount(likes.data)
         })

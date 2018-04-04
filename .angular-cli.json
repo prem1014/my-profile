@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "personal-app"
+    "name": "my-profile-updated"
   },
   "apps": [
     {
@@ -19,14 +19,13 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "../node_modules/bootstrap/dist/css/bootstrap.css",
-        "../node_modules/font-awesome/css/font-awesome.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/fontawesome-free-5.0.9/web-fonts-with-css/css/fontawesome-all.css",
         "styles.scss"
       ],
       "scripts": [
-        "../node_modules/jquery/dist/jquery.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.js",
-        "../node_modules/moment/moment.js"
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

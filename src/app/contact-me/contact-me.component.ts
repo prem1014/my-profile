@@ -1,33 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { APIService } from '../_core/api-service'
-import { trigger, transition, animate, style } from '@angular/animations';
+import { ApiService } from '../_core/api.service'
+import { ToasterService } from '../_core/toaster-service';
 
 @Component({
   selector: 'app-contact-me',
   templateUrl: './contact-me.component.html',
   styleUrls: ['./contact-me.component.scss'],
-  animations: [
-    trigger('slideInOut', [
-      transition(':enter', [
-        style({transform: 'translateY(-100%)'}),
-        animate('800ms ease-in', style({transform: 'translateY(0%)'}))
-      ]),
-      transition(':leave', [
-        animate('800ms ease-in', style({transform: 'translateY(-100%)'}))
-      ])
-    ])
-  ]
 })
 export class ContactMeComponent implements OnInit {
   contactDetails: any = {};
   isLoading: string;
   public toastr;
+  public collapsed;
   public user: any;
   public toasterconfig;
-  constructor(private api: APIService) {
-    this.api = api;
-    this.toasterconfig = this.api.initToasterConfig();
-    this.toastr = api.getToaster();
+  constructor(private api: ApiService, private toaster: ToasterService) {
+
   }
 
   ngOnInit() {
@@ -41,7 +29,22 @@ export class ContactMeComponent implements OnInit {
     this.api.saveMessage({messageDetails: this.contactDetails})
       .subscribe(data => {
         this.isLoading = 'false'
-        this.toastr.success('Your message has saved. Thank you for your interest. I will get back to you soon.')
-      });
+        this.toastr.success(
+          {
+            success: true,
+            message: 'Your message has saved. Thank you for your interest. I will get back to you soon.'
+          }
+        )
+      },
+      error => {
+        this.isLoading = 'false';
+        this.toaster.error(
+          {
+            error: true,
+            message: error.message
+          }
+        )
+      }
+    );
   }
 }

@@ -1,0 +1,68 @@
+<div class="row margin-top-bottom slide-down" slide-animation>
+    <div class="col-lg-2 col-md-2 col-sm-2 col-12 left-aside box-shadow">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a [routerLink]="['personalInfo']" class="nav-link">Personal Info</a>
+            </li>
+            <li class="nav-item">
+                <a [routerLink]="['jsTutorials']" class="nav-link">Javascript Tutorials</a>
+            </li>
+            <li class="nav-item">
+                <a [routerLink]="['angTutorials']" class="nav-link">Angular Tutorials</a>
+            </li>
+            <li class="nav-item">
+                <a [routerLink]="['myAsset']" class="nav-link">My Asset</a>
+            </li>
+            <li class="nav-item">
+                <a [routerLink]="['voting']" class="nav-link">Vote</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-10 col-12 right-aside box-shadow">
+        <span *ngIf="loading === 'true'">
+            <i class="fa fa-spinner fa-spin"></i>
+        </span>
+        <div class="row" *ngIf="user.role === 'Admin' && loading === 'false'">
+            <div class="col-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Candidate Name</th>
+                            <th>Total Vote</th>
+                            <th>Vote Share</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let vote of candidateVoteDetails">
+                            <td>{{vote.candiateName}}</td>
+                            <td>{{vote.totalVote}}</td>
+                            <td>{{vote.voteShare}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row" *ngIf="user.role === 'Admin' && loading === 'false'">
+            <div class="col-12" style="height: 200px; overflow:auto">
+                    <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Candidate Name</th>
+                                    <th>Voter Name</th>
+                                    <th>Ward No</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let vote of voteDetails">
+                                    <td>{{vote.candiateName}}</td>
+                                    <td>{{vote.voterName}}</td>
+                                    <td>{{vote.wardNo}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+            </div>
+        </div>
+        <div class="row" [chart]="chart" *ngIf="user.role === 'Admin' && loading === 'false'"></div>
+        <router-outlet></router-outlet>
+    </div>
+</div>

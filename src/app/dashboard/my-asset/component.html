@@ -1,4 +1,4 @@
-<diV class="row" [@slideInOut]>
+<diV class="row slide-down" slide-animation>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <h3>Asset</h3>
         <hr>
@@ -18,7 +18,7 @@
                 </label>
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                     <input type="text" #savingType="ngModel" required class="form-control" name="type" [(ngModel)]="asset.type">
-                    <span class="error-message" [hidden]="savingType.valid || savingType.pristine">Please enter type of saving</span>                
+                    <span class="error-message" [hidden]="savingType.valid || savingType.pristine">Please enter type of saving</span>
                 </div>
             </div>
             <div class="form-group">
@@ -36,28 +36,30 @@
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                     <button type="submit" [disabled]="!assetForm.valid || isSavingAsset" class="btn btn-info">Save</button>
                     <span *ngIf="isSavingAsset">
-                            <i class="fa fa-spinner fa-spin"></i>
+                        <i class="fa fa-spinner fa-spin"></i>
                     </span>
                 </div>
             </div>
         </form>
         <hr>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-            <div class="finance-badge-container total-asset">
-                <h4>Total Asset</h4>
-                <h3>{{totalAsset}}</h3>
-                <span *ngIf="isLoadingAsset">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="finance-badge-container total-asset">
+                    <h4>Total Asset</h4>
+                    <h3>{{totalAsset}}</h3>
+                    <span *ngIf="isLoadingAsset">
                         <i class="fa fa-spinner fa-spin"></i>
-                </span>
+                    </span>
+                </div>
             </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <div class="finance-badge-container total-asset">
-                <h4>Saving this month</h4>
-                <h3>{{monthlySaving}}</h3>
-                <span *ngIf="isLoadingAsset">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="finance-badge-container total-asset">
+                    <h4>Saving this month</h4>
+                    <h3>{{monthlySaving}}</h3>
+                    <span *ngIf="isLoadingAsset">
                         <i class="fa fa-spinner fa-spin"></i>
-                </span>
+                    </span>
+                </div>
             </div>
         </div>
     </div>
@@ -98,30 +100,31 @@
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                     <button type="submit" [disabled]="!expenseForm.valid || isSavingExpense" class="btn btn-info">Save</button>
                     <span *ngIf="isSavingExpense">
-                            <i class="fa fa-spinner fa-spin"></i>
+                        <i class="fa fa-spinner fa-spin"></i>
                     </span>
                 </div>
             </div>
         </form>
         <hr>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-            <div class="finance-badge-container total-expense">
-                <h4>Total Expense</h4>
-                <h3>{{totalExpense}}</h3>
-                <span *ngIf="isLoadingExpense">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="finance-badge-container total-expense">
+                    <h4>Total Expense</h4>
+                    <h3>{{totalExpense}}</h3>
+                    <span *ngIf="isLoadingExpense">
                         <i class="fa fa-spinner fa-spin"></i>
-                </span>
+                    </span>
+                </div>
             </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <div class="finance-badge-container total-expense">
-                <h4>Expense this month</h4>
-                <h3>{{monthlyExpense}}</h3>
-                <span *ngIf="isLoadingExpense">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="finance-badge-container total-expense">
+                    <h4>Expense this month</h4>
+                    <h3>{{monthlyExpense}}</h3>
+                    <span *ngIf="isLoadingExpense">
                         <i class="fa fa-spinner fa-spin"></i>
-                </span>
+                    </span>
+                </div>
             </div>
         </div>
     </div>
 </diV>
-<toaster-container [toasterconfig]="toasterconfig"></toaster-container>

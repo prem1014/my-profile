@@ -1,6 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'node_modules/angular2-toaster/toaster';
-@import 'node_modules/nvd3/build/nv.d3';
 body{
     color: #000;
     background-color: #f1f1f1;
@@ -34,7 +32,8 @@ hr{
 @media only screen and (min-width:1024px){
 .left-aside{
     margin: 0px 7px 0px 8px;
-    width:31%;
+    max-width:31%;
+    width: 31%;
 }
 .right-aside {
     width: 67.4%;
@@ -83,4 +82,28 @@ hr{
     p{
         color: rgb(233, 229, 229);
     }
+}
+
+.margin-top-bottom {
+    margin-top: 75px;
+    margin-bottom: 15px;
+}
+
+.slide-down {
+    overflow:hidden;
+    transition:transform 1s ease-in; // note that we're transitioning transform, not height!
+    height:auto;
+    transform:scale(0); // implicit, but good to specify explicitly
+    transform-origin:top; // keep the top of the element in the same place. this is optional.
+}
+.slide {
+    transform:scale(1); // *squish*
+}
+
+@keyframes fadein {
+    0% {opacity: 0;}
+    25% {opacity: 0.25;}
+    50% {opacity: 0.50;}
+    75% {opacity: 0.75;}
+    100% {opacity: 1;}
 }

@@ -1,0 +1,83 @@
+<div class="row slide-down" slide-animation>
+    <div class="col-lg-2 col-md-2 col-sm-2 col-12">
+
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-12">
+        <h3 style="text-align:center;font-size: 24px;font-weight: bold;">Vote for your favroite mukhiya</h3>
+        <h3 style="text-align:center;font-size: 24px;font-weight: bold;">अपने पसंदीदा मुखिया के लिए वोट करें </h3>
+        <hr style="margin-bottom:15px;">
+        <form class="form-horizontal" (ngSubmit)="saveVote()" name="voterForm" #voterForm="ngForm" novalidate>
+            <div class="form-group">
+                <label class="control-label col-lg-4 col-md-4 col-sm-4 col-12">
+                    Mobile No:
+                </label>
+                <div class="col-12">
+                    <input type="text" maxlength="10" minlength="10" required class="form-control" name="voterNo" [(ngModel)]="voteDetails.voterNo">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4 col-md-4 col-sm-4 col-12">
+                    Name:
+                </label>
+                <div class="col-12">
+                    <input type="text" required class="form-control" name="voterName" [(ngModel)]="voteDetails.voterName">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4 col-md-4 col-sm-4 col-12">
+                    Ward No:
+                </label>
+                <div class="col-12">
+                    <select class="form-control" name="wardNo" [(ngModel)]="voteDetails.wardNo" required>
+                        <option [ngValue]="select">-- Select--</option>
+                        <option *ngFor="let ward of wardDetails" value="{{ward.id}}">
+                            {{ward.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4 col-md-4 col-sm-4 col-12">
+                    Choose your mukhiya/ अपने मुखिया का नाम चुनें:
+                </label>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-12">
+                            <input type="radio" id="sanjay" value="Sanjay Ray(Kunti Devi)" required name="candidate" [(ngModel)]="voteDetails.candiateName">
+                            <label for="sanjay">Sanjay Ray(Kunti Devi)/ संजय राय</label>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-12">
+                            <input type="radio" id="rambabu" value="Rambabu Ray Sir" required name="candidate" [(ngModel)]="voteDetails.candiateName">
+                            <label for="rambabu">Rambabu Ray Sir/ रामबाबू राय सर (बथान टोला )</label>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-12">
+                            <input type="radio" id="vijayThakur" value="Vijay Thakur" required name="candidate" [(ngModel)]="voteDetails.candiateName">
+                            <label for="vijayThakur">Vijay Thakur/ विजय ठाकुर</label>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-12">
+                            <input type="radio" id="prabhunathRay" value="Prabhunath Ray" required name="candidate" [(ngModel)]="voteDetails.candiateName">
+                            <label for="prabhunathRay">Prabhunath Ray/ प्रभुनाथ राय </label>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-12">
+                            <input type="radio" id="others" value="Others" required name="candidate" [(ngModel)]="voteDetails.others">
+                            <label for="others">Others/कोई और </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" *ngIf="voteDetails.others === 'Others'">
+                <label class="col-12">निचे अपने पसंद के मुखिया का नाम लिखे:</label>
+                <div class="col-12">
+                    <input type="text" class="form-control" name="candidate" [(ngModel)]="voteDetails.candiateName">
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" [disabled]="!voterForm.valid || loading === 'true'" class="btn btn-info">Save</button>
+                <span *ngIf="loading === 'true'"><i class="fa fa-spinner fa-spin"></i></span>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2 col-12">
+    </div>
+</div>
+<app-toaster></app-toaster>

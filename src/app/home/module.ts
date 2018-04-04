@@ -1,26 +1,21 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule }   from '@angular/forms';
-import {ToasterModule} from 'angular2-toaster';
-import { HomeComponent } from './home.component';
-const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  }
-];
+
+import { ToasterModule } from '../_widgets/toaster/module';
+import { SlideAnimationModule } from '../_widgets/animation/module';
+import { HomeComponent } from './component';
+import { route } from './route';
 
 @NgModule({
-  declarations: [
-    HomeComponent
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ToasterModule,
-    RouterModule.forChild(routes)
-  ],
-  exports: [RouterModule]
+    declarations: [HomeComponent],
+    imports: [
+        CommonModule,
+        ToasterModule,
+        SlideAnimationModule,
+        RouterModule.forChild(route),
+    ],
+    exports: [RouterModule]
 })
-export class HomeModule { }
+
+export class HomeModule {}

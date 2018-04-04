@@ -1,13 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { HttpModule } from '@angular/http';
-import {ToasterModule} from 'angular2-toaster';
-import { APIService } from './_core/api-service';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { routes } from './routes';
-import { AuthGuard } from './_core/auth-guard.service';
+
+import { ScrollTopModule } from './_widgets/scroll-top/module';
+import { ToasterModule } from './_widgets/toaster/module';
+import { ApiService } from './_core/api.service';
+import { AuthGuard } from './_core/auth-guard';
+import { ToasterService } from './_core/toaster-service';
 
 @NgModule({
   declarations: [
@@ -15,12 +18,12 @@ import { AuthGuard } from './_core/auth-guard.service';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    HttpModule,
+    HttpClientModule,
     ToasterModule,
-    RouterModule.forRoot(routes, { useHash: true })
+    ScrollTopModule,
+    RouterModule.forRoot(routes, {useHash: true})
   ],
-  providers: [APIService, AuthGuard],
+  providers: [ApiService, AuthGuard, ToasterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

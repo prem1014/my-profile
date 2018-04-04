@@ -6,6 +6,8 @@ import { LikeButtonModule } from '../../../_widgets/like-button/module';
 import { CommonHeaderModule } from '../../../_widgets/common-header/module';
 import { CommentModule } from '../../../_widgets/comment/module';
 import { ScrollTrackerModule } from '../../../_widgets/scroll-tracker/modulte';
+import { ScrollTopModule } from '../../../_widgets/scroll-top/module';
+import { SlideAnimationModule } from '../../../_widgets/animation/module'
 
 @NgModule({
     imports: [
@@ -13,7 +15,9 @@ import { ScrollTrackerModule } from '../../../_widgets/scroll-tracker/modulte';
         LikeButtonModule,
         CommonHeaderModule,
         CommentModule,
-        ScrollTrackerModule
+        ScrollTrackerModule,
+        ScrollTopModule,
+        SlideAnimationModule
     ],
     declarations: [PrototypeComponent],
     exports: [

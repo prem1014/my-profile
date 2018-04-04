@@ -1,7 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 
-import { APIService } from '../../_core/api-service';
-import { ToasterConfig } from 'angular2-toaster';
+import { ApiService } from '../../_core/api.service';
+//import { ToasterConfig } from 'angular2-toaster';
 
 import * as _ from 'lodash'
 import { trigger, transition, animate, style } from '@angular/animations'
@@ -10,17 +10,6 @@ import { trigger, transition, animate, style } from '@angular/animations'
     selector: 'app-my-asset',
     templateUrl: './component.html',
     styleUrls: ['./component.scss'],
-    animations: [
-        trigger('slideInOut', [
-          transition(':enter', [
-            style({transform: 'translateY(-100%)'}),
-            animate('800ms ease-in', style({transform: 'translateY(0%)'}))
-          ]),
-          transition(':leave', [
-            animate('800ms ease-in', style({transform: 'translateY(-100%)'}))
-          ])
-        ])
-      ]
 })
 
 export class MyAssetComponent implements OnInit {
@@ -37,16 +26,8 @@ export class MyAssetComponent implements OnInit {
     public isLoadingExpense;
     public monthlySaving;
     public monthlyExpense;
-    constructor(private api: APIService){
+    constructor(private api: ApiService){
         //this.toasterconfig = this.api.initToasterConfig();
-        this.toasterconfig = 
-        new ToasterConfig({
-            showCloseButton: true, 
-            tapToDismiss: false, 
-            timeout: 0,
-            positionClass: 'toast-bottom-right'
-        });
-        this.toastr = this.api.getToaster();
     }
     ngOnInit(){
         this.userDetails = JSON.parse(sessionStorage.getItem('userRole'));
@@ -81,7 +62,7 @@ export class MyAssetComponent implements OnInit {
     getAsset(): void {
         this.isLoadingAsset = true;
         this.api.getAsset(this.userDetails._id)
-        .subscribe(data => {
+        .subscribe((data: any) => {
             console.log(data);
             this.totalAsset = this.getTotal(data.data)
             this.isLoadingAsset = false;
@@ -93,7 +74,7 @@ export class MyAssetComponent implements OnInit {
     getExpense(): void {
         this.isLoadingExpense = true;
         this.api.getExpense(this.userDetails._id)
-        .subscribe(data => {
+        .subscribe((data: any) => {
             console.log(this.getTotal(data.data));
             this.totalExpense = this.getTotal(data.data);
             this.isLoadingExpense = false;

@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';import { CommonModule } from '@angular/common';
 import { FormsModule }   from '@angular/forms';
-import {ToasterModule} from 'angular2-toaster';;
+//import {ToasterModule} from 'angular2-toaster';;
+import { SlideAnimationModule } from '../_widgets/animation/module';
 
-import { PersonalDetailComponent } from './personal-detail.component';
+import { PersonalDetailComponent } from './component';
 const routes: Routes = [
   {
     path: '',
@@ -18,7 +19,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    ToasterModule,
+    SlideAnimationModule,
     RouterModule.forChild(routes)
   ],
   exports: [RouterModule]

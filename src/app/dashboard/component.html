@@ -13,16 +13,16 @@
             <li class="nav-item">
                 <a [routerLink]="['myAsset']" class="nav-link">My Asset</a>
             </li>
-            <li class="nav-item">
+            <!--li class="nav-item">
                 <a [routerLink]="['voting']" class="nav-link">Vote</a>
-            </li>
+            </li !-->
         </ul>
     </div>
     <div class="col-lg-10 col-md-10 col-sm-10 col-12 right-aside box-shadow">
         <span *ngIf="loading === 'true'">
             <i class="fa fa-spinner fa-spin"></i>
         </span>
-        <div class="row" *ngIf="user.role === 'Admin' && loading === 'false'">
+        <!--div class="row" *ngIf="user.role === 'Admin' && loading === 'false'">
             <div class="col-12">
                 <table class="table table-bordered">
                     <thead>
@@ -62,7 +62,7 @@
                         </table>
             </div>
         </div>
-        <div class="row" [chart]="chart" *ngIf="user.role === 'Admin' && loading === 'false'"></div>
+        <div class="row" [chart]="chart" *ngIf="user.role === 'Admin' && loading === 'false'"></div !-->
         <router-outlet></router-outlet>
     </div>
 </div>

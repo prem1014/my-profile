@@ -7,7 +7,8 @@ import { CommonHeaderModule } from '../../../_widgets/common-header/module';
 import { CommentModule } from '../../../_widgets/comment/module';
 import { ScrollTrackerModule } from '../../../_widgets/scroll-tracker/modulte';
 import { ScrollTopModule } from '../../../_widgets/scroll-top/module';
-import { SlideAnimationModule } from '../../../_widgets/animation/module'
+import { SlideAnimationModule } from '../../../_widgets/animation/module';
+
 
 @NgModule({
     declarations: [ClosureComponent],

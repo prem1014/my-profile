@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-//import {ToasterModule} from 'angular2-toaster';
+import { ToasterModule } from '../toaster/module';
 import { CommentComponent } from './component';
 
 @NgModule({
     declarations: [CommentComponent],
     imports: [
         FormsModule,
-        CommonModule
+        CommonModule,
+        ToasterModule
         ],
     exports: [CommentComponent]
 })

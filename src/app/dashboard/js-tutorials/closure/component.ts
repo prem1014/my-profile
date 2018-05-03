@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { trigger, transition, animate, style } from '@angular/animations'
+import { trigger, transition, animate, style } from '@angular/animations';
 
 @Component({
     selector: 'app-closure',

@@ -29,6 +29,10 @@ export const route: Routes = [
       {
         path: 'voting',
         loadChildren: 'app/dashboard/voting/module#VotingModule'
+      },
+      {
+        path: 'mahayag',
+        loadChildren: 'app/dashboard/mahayag/module#MahayagModule'
       }
     ]
   }

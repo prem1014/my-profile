@@ -5,11 +5,11 @@ import { CommonModule } from '@angular/common';
 
 import { ToasterModule } from '../../_widgets/toaster/module';
 import { SlideAnimationModule } from '../../_widgets/animation/module';
-import { VotingComponent } from './component';
+import { MahayagComponent } from './component';
 import { route } from './route';
 
 @NgModule({
-    declarations: [VotingComponent],
+    declarations: [MahayagComponent],
     imports: [
         SlideAnimationModule,
         FormsModule,
@@ -20,4 +20,4 @@ import { route } from './route';
     exports: [RouterModule]
 })
 
-export class VotingModule {}
+export class MahayagModule {}

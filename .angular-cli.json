@@ -20,7 +20,7 @@
       "prefix": "app",
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "../node_modules/fontawesome-free-5.0.9/web-fonts-with-css/css/fontawesome-all.css",
+        "../node_modules/fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.css",
         "styles.scss"
       ],
       "scripts": [

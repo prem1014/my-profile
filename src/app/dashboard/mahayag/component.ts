@@ -4,8 +4,9 @@ import { ApiService } from '../../_core/api.service';
 import { ToasterService } from '../../_core/toaster-service';
 import * as moment from 'moment';
 @Component({
-    selector: 'app-voting',
-    templateUrl: './component.html'
+    selector: 'app-mahayag',
+    templateUrl: './component.html',
+    styleUrls: ['./component.scss']
 })
 
 export class MahayagComponent implements OnInit {

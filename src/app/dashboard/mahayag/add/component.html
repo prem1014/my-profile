@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-12">
+        <h4>चंदा का विवरण</h4>
+        <form #paymentForm="ngForm" (ngSubmit)="save()">
+            <div class="form-group">
+                <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    चंदा का राशि/Amount:
+                </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <input type="number" [(ngModel)]="paymentDetails.amount" name="amount" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    चंदा देने वाले का नाम/Name:
+                </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <input type="text" [(ngModel)]="paymentDetails.name" name="name" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    चंदा देने वाले का मोबाइल न./Mobile No:
+                </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <input type="text" [(ngModel)]="paymentDetails.mobile" name="mobile" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    चंदा देने का तारीख/Date:
+                </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <input type="date" [(ngModel)]="paymentDetails.date" name="date" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    चंदा देने वाले का पता/Address:
+                </label>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <textarea name="address" [(ngModel)]="paymentDetails.address" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-12">
+                    <button type="submit" class="btn btn-info">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

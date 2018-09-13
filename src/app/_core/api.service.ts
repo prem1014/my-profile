@@ -74,7 +74,7 @@ export class ApiService {
   public getTotalExperience(startDate, endDate) {
     return (moment(new Date(startDate)).diff(moment(new Date(endDate)), 'month')).toString().split('-')[1];
   }
-  
+
   public save(experience) {
     return this.http.post(this.apiUrl + 'myDetails', experience)
   }
@@ -89,5 +89,13 @@ export class ApiService {
 
   public getVoteDetails() {
     return this.http.get(this.apiUrl + 'vote');
+  }
+
+  public saveChanda(chandaDetails: any) {
+    return this.http.post(this.apiUrl + 'chandaDetails', chandaDetails);
+  }
+
+  public getChanda() {
+    return this.http.get(this.apiUrl + 'chandaDetails');
   }
 }

@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 
 import { ToasterModule } from '../../_widgets/toaster/module';
 import { SlideAnimationModule } from '../../_widgets/animation/module';
@@ -12,8 +10,6 @@ import { route } from './route';
     declarations: [MahayagComponent],
     imports: [
         SlideAnimationModule,
-        FormsModule,
-        CommonModule,
         ToasterModule,
         RouterModule.forChild(route)
     ],

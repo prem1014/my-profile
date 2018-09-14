@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { ApiService } from '../../_core/api.service';
 import { ToasterService } from '../../_core/toaster-service';
@@ -11,7 +12,7 @@ import * as moment from 'moment';
 
 export class MahayagComponent implements OnInit {
 
-    constructor(private api: ApiService, private toaster: ToasterService) {
+    constructor(private api: ApiService, private toaster: ToasterService, private activeRoute: ActivatedRoute) {
 
     }
     ngOnInit() {

@@ -10,8 +10,8 @@ export class ApiService {
   public redirectUrl: string;
   public userRole: string;
   // private instance variable to hold base url
-  //private apiUrl = 'http://localhost:8080/api/';
-  private apiUrl = 'https://myprofileapi.herokuapp.com/api/';
+  private apiUrl = 'http://localhost:8080/api/';
+  //private apiUrl = 'https://myprofileapi.herokuapp.com/api/';
   constructor(private http: HttpClient) {
 
   }

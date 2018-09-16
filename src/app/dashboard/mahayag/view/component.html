@@ -1,8 +1,10 @@
-<div class="row">
+<div class="row chanda-list">
   <div class="col-12">
     <h4>चंदा का विवरण</h4>
-    <div class="total-amount"><h4>अभी तक चंदा जमा हुआ है : {{totalAmount}}</h4></div>
-    <table class="table table-bordered table-hover">
+    <div class="total-amount">
+      <h4>अभी तक चंदा जमा हुआ है : {{totalAmount}}</h4>
+    </div>
+    <table class="table table-bordered">
       <thead>
         <tr>
           <th>नाम</th>
@@ -10,11 +12,46 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let chandaDetail of chandaDetails" style="cursor: pointer;">
+        <tr *ngFor="let chandaDetail of chandaDetails; let i = index;" style="cursor: pointer;"
+         (click)="onRowSelection(chandaDetail, i)"
+         [ngClass]="{'selected-row': chandaDetail.isRowSelected}">
           <td>{{chandaDetail.name}}</td>
           <td>{{chandaDetail.amount}} /-</td>
         </tr>
       </tbody>
     </table>
   </div>
+</div>
+<div class="row donar-details" *ngIf="isRowSelected">
+  <div class="col-4">
+    <span>नाम</span>
+  </div>
+  <div class="col-8">
+    <span>{{selectedRow.name}}</span>
+  </div>
+  <div class="col-4">
+    <span>चंदा का राशि</span>
+  </div>
+  <div class="col-8">
+    <span>{{selectedRow.amount}}</span>
+  </div>
+  <div class="col-4">
+    <span>मोबाइल न.</span>
+  </div>
+  <div class="col-8">
+    <span>{{selectedRow.mobile}}</span>
+  </div>
+  <div class="col-4">
+    <span>तारीख</span>
+  </div>
+  <div class="col-8">
+    <span>{{selectedRow.date}}</span>
+  </div>
+  <div class="col-4">
+    <span>पता</span>
+  </div>
+  <div class="col-8">
+    <span>{{selectedRow.address}}</span>
+  </div>
+  <button type="button" class="btn btn-danger" (click)="deleteChanda(selectedRow._id)">Delete</button>
 </div>

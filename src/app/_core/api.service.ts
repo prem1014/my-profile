@@ -98,4 +98,8 @@ export class ApiService {
   public getChanda() {
     return this.http.get(this.apiUrl + 'chandaDetails');
   }
+
+  public deleteChanda (id) {
+    return this.http.delete(this.apiUrl + 'chandaDetails/' + id);
+  }
 }

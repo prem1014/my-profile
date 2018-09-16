@@ -16,6 +16,7 @@ export class AddPaymentComponent implements OnInit {
 
     private save(): void {
         console.log(this.paymentDetails);
+        this.paymentDetails.id = 'TR' + Math.floor(Math.random() * 1000 + 1);
         this.api.saveChanda(this.paymentDetails)
         .subscribe( (data) => {
             console.log('data saved');

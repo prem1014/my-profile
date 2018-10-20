@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subject }    from 'rxjs/Subject';
+import { Subject } from 'rxjs/Subject';
 
 import * as moment from 'moment';
 
@@ -24,7 +24,7 @@ export class ApiService {
   }
 
   public authenticateUser(userId: any) {
-    return this.http.get(this.apiUrl + 'login' + '/' + userId)
+    return this.http.get(this.apiUrl + 'login' + '/' + userId);
   }
 
   public saveUserInfo(user: any) {
@@ -36,38 +36,38 @@ export class ApiService {
   }
 
   public saveAssetDetails(asset: any) {
-    return this.http.post(this.apiUrl + 'asset', { asset: asset })
+    return this.http.post(this.apiUrl + 'asset', { asset: asset });
   }
 
   public saveExpenseDetails(expense: any) {
-    return this.http.post(this.apiUrl + 'expense', { expense: expense })
+    return this.http.post(this.apiUrl + 'expense', { expense: expense });
   }
 
   public getAsset(id) {
-    return this.http.get(this.apiUrl + 'asset' + '/' + id)
+    return this.http.get(this.apiUrl + 'asset' + '/' + id);
 
   }
 
   public getExpense(id) {
-    return this.http.get(this.apiUrl + 'expense' + '/' + id)
+    return this.http.get(this.apiUrl + 'expense' + '/' + id);
 
   }
 
   public saveLike(feedback) {
-    return this.http.post(this.apiUrl + 'feedbackLike', { feedback: feedback })
+    return this.http.post(this.apiUrl + 'feedbackLike', { feedback: feedback });
   }
   public getLikes(tutorialName) {
-    return this.http.get(this.apiUrl + 'feedbackLike' + '/' + tutorialName)
+    return this.http.get(this.apiUrl + 'feedbackLike' + '/' + tutorialName);
 
   }
 
   public saveComment(commentDetails) {
-    return this.http.post(this.apiUrl + 'feedbackComment', { commentDetails: commentDetails })
+    return this.http.post(this.apiUrl + 'feedbackComment', { commentDetails: commentDetails });
 
   }
 
   public getComments(tutorialName) {
-    return this.http.get(this.apiUrl + 'feedbackComment' + '/' + tutorialName)
+    return this.http.get(this.apiUrl + 'feedbackComment' + '/' + tutorialName);
 
   }
 
@@ -76,19 +76,27 @@ export class ApiService {
   }
 
   public save(experience) {
-    return this.http.post(this.apiUrl + 'myDetails', experience)
+    return this.http.post(this.apiUrl + 'myDetails', experience);
   }
 
   public saveMessage(messageDetails) {
-    return this.http.post(this.apiUrl + 'contact', messageDetails)
+    return this.http.post(this.apiUrl + 'contact', messageDetails);
   }
 
   public saveVote(voteDetails) {
-    return this.http.post(this.apiUrl + 'vote', {voteDetails: voteDetails})
+    return this.http.post(this.apiUrl + 'vote', { voteDetails: voteDetails });
+  }
+
+  public saveVoters(voterDetails) {
+    return this.http.post(this.apiUrl + 'voters', { voteDetails: voterDetails });
   }
 
   public getVoteDetails() {
     return this.http.get(this.apiUrl + 'vote');
+  }
+
+  public getVoterDetails() {
+    return this.http.get(this.apiUrl + 'voters');
   }
 
   public saveChanda(chandaDetails: any) {
@@ -99,7 +107,11 @@ export class ApiService {
     return this.http.get(this.apiUrl + 'chandaDetails');
   }
 
-  public deleteChanda (id) {
+  public deleteChanda(id) {
     return this.http.delete(this.apiUrl + 'chandaDetails/' + id);
+  }
+
+  public deleteVoterDetails(id) {
+    return this.http.delete(this.apiUrl + 'voters/' + id);
   }
 }

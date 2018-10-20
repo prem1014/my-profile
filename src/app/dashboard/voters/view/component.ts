@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 
+
 import { ApiService } from '../../../_core/api.service';
 import { ToasterService } from '../../../_core/toaster-service';
 import * as _ from 'lodash';
 
 @Component({
-    selector: 'app-view',
+    selector: 'app-view-voters',
     templateUrl: './component.html',
     styleUrls: ['./component.scss']
 })
 
-export class PaymentDetailsComponent implements OnInit {
-    private chandaDetails: any = [];
-    private totalAmount = 0;
+export class ViewVotersComponent implements OnInit {
+    private votersDetails: any = [];
+    private totalVote = 0;
     private selectedRow;
     private isRowSelected;
     private user;
@@ -26,32 +27,32 @@ export class PaymentDetailsComponent implements OnInit {
                 role: null
             };
         } else {
-            if (this.user.role !== 'Maahayag#2356@') {
-                this.message = 'आपको चंदा विवरण देखने की अनुमति नहीं है |';
+            if (this.user.role !== 'Admin') {
+                this.message = 'Sorry !!! You do not have proper access rights to view this page';
             } else {
-                this.getChanda();
+                this.getVoterDetails();
             }
         }
     }
 
     private deleteChanda (id) {
-        this.api.deleteChanda(id)
+        this.api.deleteVoterDetails(id)
         .subscribe( data => {
-            console.log('Data deleted');
+            console.log('voter deleted');
             this.toaster.success(
                 {
                     success: true,
-                    message: 'आपके द्वारा चूना गया चंदा का विवरण सफलता पूर्वक हटा दिया गया |'
+                    message: 'Voter details deleted'
                 }
             );
             this.isRowSelected = false;
-            this.getChanda();
+           this.getVoterDetails();
         });
     }
     private onRowSelection (selectedRow, index) {
         this.isRowSelected = true;
         this.selectedRow = selectedRow;
-        this.chandaDetails = _.map(this.chandaDetails, item => {
+        this.votersDetails = _.map(this.votersDetails, item => {
             if (item._id === selectedRow._id) {
                 item.isRowSelected = true;
             } else {
@@ -61,13 +62,14 @@ export class PaymentDetailsComponent implements OnInit {
         });
     }
 
-    private getChanda () {
-        this.api.getChanda()
+    private getVoterDetails () {
+        this.api.getVoterDetails()
         .subscribe( (data: any) => {
-            this.chandaDetails = data.chandaDetails;
-            this.totalAmount = _.sumBy(this.chandaDetails, (chandaDetail) => {
+            this.votersDetails = data.voteDetails;
+            /*this.totalVote = _.sumBy(this.totalVote, (chandaDetail) => {
                 return chandaDetail.amount;
-            });
+            })*/
+            this.totalVote = this.votersDetails.length;
         });
     }
 }

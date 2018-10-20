@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { MahayagComponent } from './component';
- import { AuthGuard } from '../../_core/auth-guard';
+import { AuthGuard } from '../../_core/auth-guard';
 export const route: Routes = [
     {
         path: '',

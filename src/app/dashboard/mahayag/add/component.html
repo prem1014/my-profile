@@ -1,5 +1,5 @@
 <div class="row chanda-details">
-    <div class="col-12">
+    <div *ngIf="user.role === 'Maahayag#2356@'" class="col-12">
         <h4>चंदा का विवरण</h4>
         <form #paymentForm="ngForm" (ngSubmit)="save()">
             <div class="form-group">
@@ -49,5 +49,6 @@
             </div>
         </form>
     </div>
+    {{message}}
 </div>
 <app-toaster></app-toaster>

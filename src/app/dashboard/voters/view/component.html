@@ -1,0 +1,60 @@
+<div class="row chanda-list">
+        <div *ngIf="user.role === 'Admin'" class="col-12">
+          <h4>Voters Details</h4>
+          <div class="total-amount">
+            <h4>Total Vote : {{totalVote}}</h4>
+          </div>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Voter Id</th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let voterDetails of votersDetails; let i = index;" style="cursor: pointer;"
+               (click)="onRowSelection(voterDetails, i)"
+               [ngClass]="{'selected-row': voterDetails.isRowSelected}">
+                <td>{{voterDetails._id}}</td>
+                <td>{{voterDetails.voterName}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        {{message}}
+      </div>
+      <div class="row donar-details" *ngIf="isRowSelected">
+        <div class="col-4">
+          <span>Voter Id</span>
+        </div>
+        <div class="col-8">
+          <span>{{selectedRow._id}}</span>
+        </div>
+        <div class="col-4">
+          <span>Name</span>
+        </div>
+        <div class="col-8">
+          <span>{{selectedRow.voterName}}</span>
+        </div>
+        <div class="col-4">
+          <span>Mobile No</span>
+        </div>
+        <div class="col-8">
+          <span>{{selectedRow.mobileNo}}</span>
+        </div>
+        <div class="col-4">
+          <span>Guardian Name</span>
+        </div>
+        <div class="col-8">
+          <span>{{selectedRow.guardianName}}</span>
+        </div>
+        <div class="col-4">
+          <span>Remarks</span>
+        </div>
+        <div class="col-8">
+          <span>{{selectedRow.remarks}}</span>
+        </div>
+        <button type="button" class="btn btn-danger" (click)="deleteChanda(selectedRow._id)">Delete</button>
+      </div>
+      
+      <app-toaster></app-toaster>

@@ -1,5 +1,5 @@
 <div class="row chanda-list">
-  <div class="col-12">
+  <div *ngIf="user.role === 'Maahayag#2356@'" class="col-12">
     <h4>चंदा का विवरण</h4>
     <div class="total-amount">
       <h4>अभी तक चंदा जमा हुआ है : {{totalAmount}}</h4>
@@ -21,6 +21,7 @@
       </tbody>
     </table>
   </div>
+  {{message}}
 </div>
 <div class="row donar-details" *ngIf="isRowSelected">
   <div class="col-4">
@@ -55,3 +56,5 @@
   </div>
   <button type="button" class="btn btn-danger" (click)="deleteChanda(selectedRow._id)">Delete</button>
 </div>
+
+<app-toaster></app-toaster>

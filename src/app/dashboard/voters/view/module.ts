@@ -2,20 +2,22 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ToasterModule } from '../../../_widgets/toaster/module';
 
-import { PaymentDetailsComponent } from './component';
+import { ToasterModule } from '../../../_widgets/toaster/module';
+import { ViewVotersComponent } from './component';
 import { route } from './route';
 
 @NgModule({
-    declarations: [PaymentDetailsComponent],
+    declarations: [
+        ViewVotersComponent
+    ],
     imports: [
+        RouterModule.forChild(route),
         FormsModule,
         CommonModule,
-        ToasterModule,
-        RouterModule.forChild(route)
+        ToasterModule
     ],
     exports: [RouterModule]
 })
 
-export class PaymentDetailsModule {}
+export class ViewVoterModule {}

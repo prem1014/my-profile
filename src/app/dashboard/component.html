@@ -1,5 +1,5 @@
 <div class="row margin-top-bottom slide-down" slide-animation>
-    <div class="col-lg-2 col-md-2 col-sm-2 col-12 left-aside box-shadow">
+    <div class="col-lg-2 col-md-2 col-sm-2 col-12 left-aside box-shadow large-screen">
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a [routerLink]="['personalInfo']" class="nav-link">Personal Info</a>
@@ -16,7 +16,39 @@
             <li class="nav-item">
                 <a [routerLink]="['mahayag']" class="nav-link">महायग</a>
             </li>
+            <li class="nav-item">
+                <a [routerLink]="['voters']" class="nav-link">Voters</a>
+            </li>
         </ul>
+    </div>
+    <div class="col-12 mobile-screen">
+        <div class="hamburg slide-down" slide-animation>
+            <div class="menue" [ngClass]="{'show': ! isMenuClicked}" (click)="toggleMenu()">
+                <div class="bar-1"></div>
+                <div class="bar-2"></div>
+                <div class="bar-3"></div>
+            </div>
+            <div class="close" [ngClass]="{'show': isMenuClicked}" (click)="toggleMenu()">
+                <i class="far fa-times-circle"></i>
+            </div>
+            <ul class="nav flex-column slide-down" *ngIf="isMenuClicked" slide-animation>
+                    <li class="nav-item">
+                        <a [routerLink]="['personalInfo']" class="nav-link">Personal Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a [routerLink]="['jsTutorials']" class="nav-link">Javascript Tutorials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a [routerLink]="['angTutorials']" class="nav-link">Angular Tutorials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a [routerLink]="['myAsset']" class="nav-link">My Asset</a>
+                    </li>
+                    <li class="nav-item">
+                        <a [routerLink]="['mahayag']" class="nav-link">महायग</a>
+                    </li>
+            </ul>
+        </div>
     </div>
     <div class="col-lg-10 col-md-10 col-sm-10 col-12 right-aside box-shadow">
         <span *ngIf="loading === 'true'">

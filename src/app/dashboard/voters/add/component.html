@@ -1,0 +1,65 @@
+<div class="row chanda-details">
+    <div *ngIf="user.role === 'Admin'" class="col-12">
+        <h4>चंदा का विवरण</h4>
+        <form #paymentForm="ngForm" (ngSubmit)="save()">
+            <div class="row customRow">
+                <label class="controlLabel">Voter Name:</label>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <input type="text" [(ngModel)]="voter.voterName" name="voterName" class="form-control">
+                </div>
+                <label class="controlLabel">Voter Id:</label>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <input type="text" [(ngModel)]="voter._id" name="id" class="form-control">
+                </div>
+            </div>
+            <div class="row customRow">
+                <label class="controlLabel">Ward No:</label>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <select type="text" [(ngModel)]="voter.wardNo" name="name" class="form-control">
+                        <option [ngValue]="select">-- Select--</option>
+                        <option *ngFor="let ward of wardDetails" value="{{ward.id}}">
+                            {{ward.name}}
+                        </option>
+                    </select>
+                </div>
+                <label class="controlLabel">Mobile No:</label>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <input type="text" [(ngModel)]="voter.mobileNo" name="name" class="form-control">
+                </div>
+            </div>
+            <div class="row customRow">
+                <label class="controlLabel">Guardian Name:</label>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <input type="text" [(ngModel)]="voter.guardianName" name="guardianName" class="form-control">
+                </div>
+                <label class="controlLabel">Remarks:</label>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <textarea placeholder="Remarks" [(ngModel)]="voter.remarks" name="specialNote" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="row customRow">
+                <div class="col-12">
+                    <input type="radio" [(ngModel)]="voter.caste" name="caste" value="Yadav"/><label>Yadav</label>
+                    <input type="radio" [(ngModel)]="voter.caste" name="caste" value="Rajput"/><label>Rajput</label>
+                    <input type="radio" [(ngModel)]="voter.caste" name="caste" value="Bhumihar"/><label>Bhumihar</label>
+                    <input type="radio" [(ngModel)]="voter.caste" name="caste" value="Bhraman"/><label>Bhraman</label>
+                    <input type="radio" [(ngModel)]="voter.caste" name="caste" value="Baniya"/><label>Baniya</label>
+                    <input type="radio" [(ngModel)]="voter.caste" name="caste" value="Hajam"/><label>Hajam</label>
+                    <input type="radio" [(ngModel)]="voter.caste" name="caste" value="Chamaar"/><label>Chamaar</label>
+                    <input type="radio" [(ngModel)]="voter.caste" name="caste" value="Mushlim"/><label>Mushlim</label>
+                    <input type="radio" [(ngModel)]="voter.caste" name="caste" value="Dushadh"/><label>Dushadh</label>
+                    <input type="radio" [(ngModel)]="voter.caste" name="caste" value="Noniya"/><label>Noniya</label>
+                    <input type="radio" [(ngModel)]="voter.caste" name="caste" value="Malaah"/><label>Malaah</label>
+                    <input type="radio" [(ngModel)]="voter.caste" name="caste" value="Kohaar"/><label>Kohaar</label>
+                    <input type="radio" [(ngModel)]="voter.caste" name="caste" value="Dom"/><label>Dom</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-12">
+                    <button type="submit" class="btn btn-info">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    {{message}}
+</div>
